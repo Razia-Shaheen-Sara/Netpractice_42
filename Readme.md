@@ -9,9 +9,12 @@
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
 - However, for communication to work, their **IP addresses should be almost identical**, except for the **last digit**.  
 - subtract 1 or (in case of failure, adding 1) from the last digit
+- If there is only a switch in between computers/hosts, it does not affect any IP or mask
 
 
 ## Level 4: IP Blocks and Usable IPs
+
+**Router** will affect IPs.
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
