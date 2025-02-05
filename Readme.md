@@ -14,7 +14,8 @@
 
 ## Level 4: IP Blocks and Usable IPs
 
-**Router** will affect IPs.routers usually have different IPs and subnet masks on each interface to connect to multiple networks or subnets.
+-**Router** will affect IPs. Routers usually have different IPs and subnet masks on each interface to connect to multiple networks or subnets. 
+- Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface./
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
