@@ -3,7 +3,7 @@
 1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
 2. If the **check button** does not appear, try opening it in a **different browser**.  
 
-## Level 1
+## Level 1, 2, 3
 
 - Each PC has two numbers: an **IP address** and a **subnet mask**.  Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
@@ -11,7 +11,7 @@
 - subtract 1 or (in case of failure, adding 1) from the last digit
 
 
-## Level 2: IP Blocks and Usable IPs
+## Level 4: IP Blocks and Usable IPs
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
