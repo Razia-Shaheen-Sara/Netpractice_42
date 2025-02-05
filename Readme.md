@@ -14,7 +14,7 @@
 
 ## Level 4: IP Blocks and Usable IPs
 
-**Router** will affect IPs.
+**Router** will affect IPs.routers usually have different IPs and subnet masks on each interface to connect to multiple networks or subnets.
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
