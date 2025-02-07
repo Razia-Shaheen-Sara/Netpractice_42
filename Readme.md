@@ -14,16 +14,24 @@
 
 ## Level 4: Router
 
--**Router** will affect IPs. Routers usually have different IPs and subnet masks on each interface(meaning side) to connect to multiple networks or subnets. 
+-**Router** will affect IPs. Routers usually have different IPs and subnet masks on each side called **interface** to connect to multiple networks/ 
 - Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface./
 - So make the IPs close enough in one side of the router and make the masks same as that side of router
 
-## Level 5: Route with Router
+## Level 5: Route
 
 - Here Router will have two interface/side with two separate pc/host
 - Each host should connect to router: make same mask as router and close IPs
 - Hosts should communicate through the router for which we will have route IPs
 - Route IPs should be same as the router IP of their respective side
+
+## Level 6: THE INTERNET
+
+-Here we have internet and it's route
+- Router has 2 interfaces R1 and R2
+- There are two more routes:\
+   1. router R: gate.non-real.com
+   2. host A: webserv.non-real.com
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
