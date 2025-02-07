@@ -23,7 +23,8 @@
 - Here Router will have two interface/side with two separate pc/host
 - Each host should connect to router: make same mask as router and close IPs
 - Hosts should communicate through the router for which we will have route IPs
-- Route IPs should be same as the router IP of their respective side
+- Route IPs should be **SAME** as the router IP of their respective side
+- Route has another option (route?), that is set to default here
 
 ## Level 6: THE INTERNET
 
