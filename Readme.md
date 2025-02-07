@@ -22,17 +22,35 @@
 
 - Here Router will have two interface/side with two separate pc/host
 - Each host should connect to router: make same mask as router and close IPs
-- Hosts should communicate through the router for which we will have route IPs
+- Hosts should communicate with each other through the router for which we will have **route IPs**
 - Route IPs should be **SAME** as the router IP of their respective side
-- Route has another option (route?), that is set to default here
+- Route has another option (route), that is set to default here
 
 ## Level 6: THE INTERNET
 
--Here we have internet and it's route
+-Here we have internet and it's route, ip given
 - Router has 2 interfaces R1 and R2
 - There are two more routes:\
    1. router R: gate.non-real.com
    2. host A: webserv.non-real.com
+- to solve, do the same for the host and routes except the internet
+- for the internet route-
+  1. take first 3 octets from host **IP**
+  2. last octet of host mask or 128 or 0 and make it the fourth octet
+  3. add /0 or /any number upto 25 
+
+**why 128 or 0?**
+-If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.
+-This is a larger subnet, covering all 256 possible IPs in that range.
+-If mask is 255.255.255.128, it is a smaller network range.
+- 192.168.1.128 would cover 192.168.1.128 to 192.168.1.255 (a range of 128 IP addresses).
+
+
+**why till /25??**
+/0 means all IPs (it’s a catch-all for everything).
+/25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).
+/26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.
+
 
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
