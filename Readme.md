@@ -19,8 +19,10 @@
 Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface
 - IP address = 4 octets (32 bits total)
 - Subnet masks =  4 octets (32 bits total)
-- 1 octet = 8 bits\
+- 1 octet = 8 bits
+
 **IP and Subnet Mask Relationship**
+
 - The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
 - The network part can be in different octets depending on the subnet mask.
 - The host part is whatever remains after the network part is decided.
