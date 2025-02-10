@@ -63,6 +63,14 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 - 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. Usable IPs: 2^7 = 128.
 - 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. Usable IPs: 2^8 = 256.
 
+
+| Subnet Mask | Group Size | Example Network | Usable Range | Broadcast Address |
+|-------------|------------|-----------------|--------------|-------------------|
+| 255.255.255.240  | 16 IPs | `192.168.1.32` | `192.168.1.33 - 192.168.1.46` | `192.168.1.47` |
+| 255.255.255.192  | 64 IPs | `10.0.0.128` | `10.0.0.129 - 10.0.0.190` | `10.0.0.191` |
+| 255.255.255.252  | 4 IPs | `172.16.5.12` | `172.16.5.13 - 172.16.5.14` | `172.16.5.15` |
+
+
 # Subnet Mask diving "Pizza" Examples
 
 When dealing with a router and multiple interfaces, the **IP address block** can be visualized like a pizza. The **subnet mask** determines how the pizza is divided into slices (subnets).
