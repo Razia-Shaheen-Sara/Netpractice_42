@@ -14,7 +14,7 @@
 
 ## Level 4: Router and it's Interfaces
 
-**Theory:**\
+**Theory:**
 
 Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface
 - IP address = 4 octets (32 bits total)
@@ -39,7 +39,6 @@ Each router side called **interface** should typically have a **separate subnet 
   **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
 
 
-- make the IPs close enough in one side of the router and make the masks same as that side of router
 
 
 ## Level 5: Route
