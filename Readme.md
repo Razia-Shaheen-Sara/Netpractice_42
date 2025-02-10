@@ -16,8 +16,10 @@
 
 ** Mini Theory:**
 
-Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface.
-- Router interface IP and connected host IP should be close but NOT the same!
+- Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
+- Hosts connected to the same interface of a router will typically have
+- the same subnet mask and
+- IP addresses in the same range as the router’s interface but NOT EXACTLY the same!
 
 
 ## Level 5: Route
