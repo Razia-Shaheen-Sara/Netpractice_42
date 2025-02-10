@@ -10,9 +10,9 @@ IP address = 4 octets (32 bits total)\
 Subnet masks =  4 octets (32 bits total)\
 1 octet = 8 bits
 
-- Each PC has two numbers: an **IP address** and a **subnet mask**.  Delete all editable numbers.
+- Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
-- However, for communication to work, their **IP addresses should be almost identical**, except for the **last digit**.  
+- the **IP addresses of same network should be almost identical**, except for the **last digit**.  
 - subtract 1 or (in case of failure, adding 1) from the last digit
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
 
