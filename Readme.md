@@ -52,16 +52,16 @@
 
 These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
 
-General Pattern (8 bits range): The formula to calculate usable IPs is always 2^host-bits - 2 to account for the network and broadcast addresses.
+General Pattern (8 bits range): The formula to calculate group size is always 2^host-bits
 - 255 = 8 bits (binary: 11111111) — 8 bits for the network part, 0 IPs for hosts (no space left for hosts).
-- 254 = 7 bits (binary: 11111110) — 7 bits for the network part, leaving 1 bit for the host part. Usable IPs: 2^1 - 2 = 0.
-- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. Usable IPs: 2^2 - 2 = 2.
-- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. Usable IPs: 2^3 - 2 = 6.
-- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. Usable IPs: 2^4 - 2 = 14.
-- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. Usable IPs: 2^5 - 2 = 30.
-- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. Usable IPs: 2^6 - 2 = 62.
-- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. Usable IPs: 2^7 - 2 = 126.
-- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. Usable IPs: 2^8 - 2 = 254.
+- 254 = 7 bits (binary: 11111110) — 7 bits for the network part, leaving 1 bit for the host part. groupsize: 2^1 = 2.
+- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. Usable IPs: 2^2 = 4.
+- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. Usable IPs: 2^3 = 8.
+- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. Usable IPs: 2^4 = 16.
+- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. Usable IPs: 2^5 = 32.
+- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. Usable IPs: 2^6 = 64.
+- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. Usable IPs: 2^7 = 128.
+- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. Usable IPs: 2^8 = 256.
 
 # Subnet Mask diving "Pizza" Examples
 
