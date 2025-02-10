@@ -38,8 +38,18 @@ Each router side called **interface** should typically have a **separate subnet 
 - For subnet mask `255.255.254.0`, the network part is the first 2 octets plus part of the 3rd octet, and the host part is the remaining bits.  
   **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
 
+These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
 
-
+General Pattern (8 bits range):\
+- 255 = 8 bits (binary: 11111111) -- 8 bits for the network part.
+- 254 = 7 bits (binary: 11111110) -- 7 bits for the network part, leaving 1 bit for the host part.
+- 252 = 6 bits (binary: 11111100) -- 6 bits for the network part, leaving 2 bits for the host part.
+- 248 = 5 bits (binary: 11111000) -- 5 bits for the network part, leaving 3 bits for the host part.
+- 240 = 4 bits (binary: 11110000) -- 4 bits for the network part, leaving 4 bits for the host part.
+- 224 = 3 bits (binary: 11100000) -- 3 bits for the network part, leaving 5 bits for the host part.
+- 192 = 2 bits (binary: 11000000) -- 2 bits for the network part, leaving 6 bits for the host part.
+- 128 = 1 bit (binary: 10000000) -- 1 bit for the network part, leaving 7 bits for the host part.
+- 0 = 0 bits (binary: 00000000) -- 0 bits for the network part, leaving 8 bits for the host part.
 
 ## Level 5: Route
 
