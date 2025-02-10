@@ -5,10 +5,10 @@
 
 ## Level 1, 2, 3: IP and Mask
 
-**Mini Theory:**
-IP address = 4 octets (32 bits total)
-Subnet masks =  4 octets (32 bits total)
-1 octet = 8 bits
+**Mini Theory:**/
+IP address = 4 octets (32 bits total)/
+Subnet masks =  4 octets (32 bits total)/
+1 octet = 8 bits/
 
 - Each PC has two numbers: an **IP address** and a **subnet mask**.  Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
