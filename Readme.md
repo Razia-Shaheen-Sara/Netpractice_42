@@ -29,7 +29,52 @@
 
 ## Level 6: THE INTERNET
 
--Here we have internet and it's route, ip given
+- IP address = 4 octets (32 bits total)
+- Subnet masks =  4 octets (32 bits total)
+- 1 octet = 8 bits
+
+**IP and Subnet Mask Relationship**
+
+- The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
+- The network part can be in different octets depending on the subnet mask.
+- The host part is whatever remains after the network part is decided.
+
+**Subnet and IP Visualization Examples**
+
+- For subnet mask `255.255.255.0`, the network part is the first 3 octets, and the host part is the last octet.  
+  **IP**: `192.168.1.100` → `Network: 192.168.1 | Host: 100`
+
+- For subnet mask `255.255.255.128`, the network part is the first 3 octets plus 1 bit of the 4th octet, and the host part is the remaining bits of the 4th octet.  
+  **IP**: `192.168.1.100` → `Network: 192.168.1. | Host: 100`
+
+- For subnet mask `255.255.254.0`, the network part is the first 2 octets plus part of the 3rd octet, and the host part is the remaining bits.  
+  **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
+
+These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
+
+General Pattern (8 bits range): The formula to calculate usable IPs is always 2^host-bits - 2 to account for the network and broadcast addresses.
+- 255 = 8 bits (binary: 11111111) — 8 bits for the network part, 0 IPs for hosts (no space left for hosts).
+- 254 = 7 bits (binary: 11111110) — 7 bits for the network part, leaving 1 bit for the host part. Usable IPs: 2^1 - 2 = 0.
+- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. Usable IPs: 2^2 - 2 = 2.
+- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. Usable IPs: 2^3 - 2 = 6.
+- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. Usable IPs: 2^4 - 2 = 14.
+- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. Usable IPs: 2^5 - 2 = 30.
+- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. Usable IPs: 2^6 - 2 = 62.
+- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. Usable IPs: 2^7 - 2 = 126.
+- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. Usable IPs: 2^8 - 2 = 254.
+
+# Subnet Mask diving "Pizza" Examples
+
+When dealing with a router and multiple interfaces, the **IP address block** can be visualized like a pizza. The **subnet mask** determines how the pizza is divided into slices (subnets).
+
+- **Subnet mask 255.255.255.0**  
+  The whole pizza is divided into 1 large slice with **256 total IPs**. For example, `192.168.1.0 - 192.168.1.255`.
+
+- **Subnet mask 255.255.255.128**  
+  The pizza is divided into **2 slices**, each with **128 IPs**. For example, `192.168.1.0 - 192.168.1.127` and `192.168.1.128 - 192.168.1.255`.
+
+- **Subnet mask 255.255.255.192**  
+  The pizza is divided into **4 slices**, each with **64 IPs**. For example, `192.168.1.0 - 192.168.1.63`, `192.168.1.64 - 192.168.1.127`, `192.168.1.128 - 192.168.1.191`, and `192.168.1.192 - 192.168.1.255`.-Here we have internet and it's route, ip given
 - Router has 2 interfaces R1 and R2
 - There are two more routes:\
    1. router R: gate.non-real.com
@@ -60,52 +105,7 @@
 - At this point we have routes and interfaces **INBETWEEN** two routers\
 - Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
 
-- IP address = 4 octets (32 bits total)
-- Subnet masks =  4 octets (32 bits total)
-- 1 octet = 8 bits
 
-**IP and Subnet Mask Relationship**
-
-- The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
-- The network part can be in different octets depending on the subnet mask.
-- The host part is whatever remains after the network part is decided.
-
-**Subnet and IP Visualization Examples**
-
-- For subnet mask `255.255.255.0`, the network part is the first 3 octets, and the host part is the last octet.  
-  **IP**: `192.168.1.100` → `Network: 192.168.1 | Host: 100`
-
-- For subnet mask `255.255.255.128`, the network part is the first 3 octets plus 1 bit of the 4th octet, and the host part is the remaining bits of the 4th octet.  
-  **IP**: `192.168.1.100` → `Network: 192.168.1. | Host: 100`
-
-- For subnet mask `255.255.254.0`, the network part is the first 2 octets plus part of the 3rd octet, and the host part is the remaining bits.  
-  **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
-
-These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
-
-General Pattern (8 bits range):
-- 255 = 8 bits (binary: 11111111) -- 8 bits for the network part.
-- 254 = 7 bits (binary: 11111110) -- 7 bits for the network part, leaving 1 bit for the host part.
-- 252 = 6 bits (binary: 11111100) -- 6 bits for the network part, leaving 2 bits for the host part.
-- 248 = 5 bits (binary: 11111000) -- 5 bits for the network part, leaving 3 bits for the host part.
-- 240 = 4 bits (binary: 11110000) -- 4 bits for the network part, leaving 4 bits for the host part.
-- 224 = 3 bits (binary: 11100000) -- 3 bits for the network part, leaving 5 bits for the host part.
-- 192 = 2 bits (binary: 11000000) -- 2 bits for the network part, leaving 6 bits for the host part.
-- 128 = 1 bit (binary: 10000000) -- 1 bit for the network part, leaving 7 bits for the host part.
-- 0 = 0 bits (binary: 00000000) -- 0 bits for the network part, leaving 8 bits for the host part.
-
-# Subnet Mask "Pizza" Examples
-
-When dealing with a router and multiple interfaces, the **IP address block** can be visualized like a pizza. The **subnet mask** determines how the pizza is divided into slices (subnets).
-
-- **Subnet mask 255.255.255.0**  
-  The whole pizza is divided into 1 large slice with **256 total IPs**. For example, `192.168.1.0 - 192.168.1.255`.
-
-- **Subnet mask 255.255.255.128**  
-  The pizza is divided into **2 slices**, each with **128 IPs**. For example, `192.168.1.0 - 192.168.1.127` and `192.168.1.128 - 192.168.1.255`.
-
-- **Subnet mask 255.255.255.192**  
-  The pizza is divided into **4 slices**, each with **64 IPs**. For example, `192.168.1.0 - 192.168.1.63`, `192.168.1.64 - 192.168.1.127`, `192.168.1.128 - 192.168.1.191`, and `192.168.1.192 - 192.168.1.255`.
 
 - **Subnet mask 255.255.255.224**  
   The pizza is divided into **8 slices**, each with **32 IPs**. For example, `192.168.1.0 - 192.168.1.31`, `192.168.1.32 - 192.168.1.63`, and so on.
