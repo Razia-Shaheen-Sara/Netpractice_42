@@ -15,12 +15,26 @@
 ## Level 4: Router and it's Interfaces
 
 **Mini Theory:**\
-Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks.\
-Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface\
+Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface
+- IP address = 4 octets (32 bits total)
+- Subnet masks =  4 octets (32 bits total)
+- 1 octet = 8 bits\
+IP and Subnet Mask Relationship:
+- The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
+- The network part can be in different octets depending on the subnet mask.
+- The host part is whatever remains after the network part is decided.
 
-IP address = 4 octets (32 bits total)\
-Subnet masks =  4 octets (32 bits total)\
-1 octet = 8 bits\
+# Subnet and IP Visualization Examples
+
+- For subnet mask `255.255.255.0`, the network part is the first 3 octets, and the host part is the last octet.  
+  **IP**: `192.168.1.100` → `Network: 192.168.1 | Host: 100`
+
+- For subnet mask `255.255.255.128`, the network part is the first 3 octets plus 1 bit of the 4th octet, and the host part is the remaining bits of the 4th octet.  
+  **IP**: `192.168.1.100` → `Network: 192.168.1. | Host: 100`
+
+- For subnet mask `255.255.254.0`, the network part is the first 2 octets plus part of the 3rd octet, and the host part is the remaining bits.  
+  **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
+
 
 - make the IPs close enough in one side of the router and make the masks same as that side of router
 
