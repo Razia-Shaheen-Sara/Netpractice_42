@@ -14,17 +14,14 @@
 
 ## Level 4: Router and it's Interfaces
 
-** Mini Theory:**
-
 - Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
 - Hosts connected to the same interface of a router will typically have
 - the same subnet mask and
-- IP addresses in the same range as the router’s interface but NOT EXACTLY the same!
+- IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same!
 
 
 ## Level 5: Route
 
-- Here Router will have two interface/side with two separate pc/host
 - Each host should connect to router: make same mask as router and close IPs
 - Hosts should communicate with each other through the router for which we will have **route IPs**
 - Route IPs should be **SAME** as the router IP of their respective side
