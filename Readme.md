@@ -40,7 +40,7 @@ Each router side called **interface** should typically have a **separate subnet 
 
 These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
 
-General Pattern (8 bits range):\
+General Pattern (8 bits range):
 - 255 = 8 bits (binary: 11111111) -- 8 bits for the network part.
 - 254 = 7 bits (binary: 11111110) -- 7 bits for the network part, leaving 1 bit for the host part.
 - 252 = 6 bits (binary: 11111100) -- 6 bits for the network part, leaving 2 bits for the host part.
@@ -50,6 +50,24 @@ General Pattern (8 bits range):\
 - 192 = 2 bits (binary: 11000000) -- 2 bits for the network part, leaving 6 bits for the host part.
 - 128 = 1 bit (binary: 10000000) -- 1 bit for the network part, leaving 7 bits for the host part.
 - 0 = 0 bits (binary: 00000000) -- 0 bits for the network part, leaving 8 bits for the host part.
+
+# Subnet Mask "Pizza" Examples
+
+When dealing with a router and multiple interfaces, the **IP address block** can be visualized like a pizza. The **subnet mask** determines how the pizza is divided into slices (subnets).
+
+- **Subnet mask 255.255.255.0**  
+  The whole pizza is divided into 1 large slice with **256 total IPs**. For example, `192.168.1.0 - 192.168.1.255`.
+
+- **Subnet mask 255.255.255.128**  
+  The pizza is divided into **2 slices**, each with **128 IPs**. For example, `192.168.1.0 - 192.168.1.127` and `192.168.1.128 - 192.168.1.255`.
+
+- **Subnet mask 255.255.255.192**  
+  The pizza is divided into **4 slices**, each with **64 IPs**. For example, `192.168.1.0 - 192.168.1.63`, `192.168.1.64 - 192.168.1.127`, `192.168.1.128 - 192.168.1.191`, and `192.168.1.192 - 192.168.1.255`.
+
+- **Subnet mask 255.255.255.224**  
+  The pizza is divided into **8 slices**, each with **32 IPs**. For example, `192.168.1.0 - 192.168.1.31`, `192.168.1.32 - 192.168.1.63`, and so on.
+
+
 
 ## Level 5: Route
 
