@@ -5,6 +5,11 @@
 
 ## Level 1, 2, 3: IP and Mask
 
+**Mini Theory:**
+IP address = 4 octets (32 bits total)
+Subnet masks =  4 octets (32 bits total)
+1 octet = 8 bits
+
 - Each PC has two numbers: an **IP address** and a **subnet mask**.  Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
 - However, for communication to work, their **IP addresses should be almost identical**, except for the **last digit**.  
@@ -12,11 +17,12 @@
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
 
 
-## Level 4: Router
+## Level 4: Router and it's Interfaces
 
 -**Router** will affect IPs. Routers usually have different IPs and subnet masks on each side called **interface** to connect to multiple networks/ 
-- Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface./
+- Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface.
 - So make the IPs close enough in one side of the router and make the masks same as that side of router
+- Each router interface should typically have a **separate subnet mask**, because they are in different networks.
 
 ## Level 5: Route
 
