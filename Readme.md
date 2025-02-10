@@ -15,13 +15,15 @@
 ## Level 4: Router and it's Interfaces
 
 **Mini Theory:**\
+Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks.\
+Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface\
+
 IP address = 4 octets (32 bits total)\
 Subnet masks =  4 octets (32 bits total)\
 1 octet = 8 bits\
-Routers usually have different IPs and subnet masks on each side called **interface** to connect to multiple networks\
-- Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface.
-- So make the IPs close enough in one side of the router and make the masks same as that side of router
-- Each router interface should typically have a **separate subnet mask**, because they are in different networks.
+
+- make the IPs close enough in one side of the router and make the masks same as that side of router
+
 
 ## Level 5: Route
 
