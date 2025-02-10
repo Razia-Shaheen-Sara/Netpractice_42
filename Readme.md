@@ -14,9 +14,53 @@
 
 ## Level 4: Router and it's Interfaces
 
-**Theory:**
+** Mini Theory:**
 
-Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface
+Each router side called **interface** should typically have a **separate subnet mask**, because they are in different networks. Hosts connected to the same interface of a router will typically have the same subnet mask and IP addresses in the same range as the router’s interface.
+- Router interface IP and connected host IP should be close but NOT the same!
+
+
+## Level 5: Route
+
+- Here Router will have two interface/side with two separate pc/host
+- Each host should connect to router: make same mask as router and close IPs
+- Hosts should communicate with each other through the router for which we will have **route IPs**
+- Route IPs should be **SAME** as the router IP of their respective side
+- Route has another option (route), that is set to default here
+
+## Level 6: THE INTERNET
+
+-Here we have internet and it's route, ip given
+- Router has 2 interfaces R1 and R2
+- There are two more routes:\
+   1. router R: gate.non-real.com
+   2. host A: webserv.non-real.com
+- to solve, do the same for the host and routes except the internet
+- for the internet route-
+  1. take first 3 octets from host **IP**
+  2. last octet of host mask or 128 or 0 and make it the fourth octet
+  3. add /0 or /any number upto 25 
+
+**why 128 or 0?**\
+- If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.\
+- This is a larger subnet, covering all 256 possible IPs in that range.\
+- If mask is 255.255.255.128, it is a smaller network range.\
+- 192.168.1.128 would cover 192.168.1.128 to 192.168.1.255 (a range of 128 IP addresses).\
+
+
+**why till /25??**\
+- /0 means all IPs (it’s a catch-all for everything).\
+-/25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).\
+- /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.\
+
+## Level 7: TWO ROUTERS
+
+- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
+- first we start solving from host A1 with given IP- R1's fisrt\
+- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
+- At this point we have routes and interfaces **INBETWEEN** two routers\
+- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
+
 - IP address = 4 octets (32 bits total)
 - Subnet masks =  4 octets (32 bits total)
 - 1 octet = 8 bits
@@ -66,50 +110,6 @@ When dealing with a router and multiple interfaces, the **IP address block** can
 
 - **Subnet mask 255.255.255.224**  
   The pizza is divided into **8 slices**, each with **32 IPs**. For example, `192.168.1.0 - 192.168.1.31`, `192.168.1.32 - 192.168.1.63`, and so on.
-
-
-
-## Level 5: Route
-
-- Here Router will have two interface/side with two separate pc/host
-- Each host should connect to router: make same mask as router and close IPs
-- Hosts should communicate with each other through the router for which we will have **route IPs**
-- Route IPs should be **SAME** as the router IP of their respective side
-- Route has another option (route), that is set to default here
-
-## Level 6: THE INTERNET
-
--Here we have internet and it's route, ip given
-- Router has 2 interfaces R1 and R2
-- There are two more routes:\
-   1. router R: gate.non-real.com
-   2. host A: webserv.non-real.com
-- to solve, do the same for the host and routes except the internet
-- for the internet route-
-  1. take first 3 octets from host **IP**
-  2. last octet of host mask or 128 or 0 and make it the fourth octet
-  3. add /0 or /any number upto 25 
-
-**why 128 or 0?**\
-- If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.\
-- This is a larger subnet, covering all 256 possible IPs in that range.\
-- If mask is 255.255.255.128, it is a smaller network range.\
-- 192.168.1.128 would cover 192.168.1.128 to 192.168.1.255 (a range of 128 IP addresses).\
-
-
-**why till /25??**\
-- /0 means all IPs (it’s a catch-all for everything).\
--/25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).\
-- /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.\
-
-## Level 7: TWO ROUTERS
-
-- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
-- first we start solving from host A1 with given IP- R1's fisrt\
-- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
-- At this point we have routes and interfaces **INBETWEEN** two routers\
-- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
-
 IP addresses come in groups called **blocks**. Each block has:
 - **Network Address** = First IP in the block (**not usable**).
 - **Broadcast Address** = Last IP in the block (**not usable**).
