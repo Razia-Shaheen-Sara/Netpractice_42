@@ -1,7 +1,12 @@
 # How to Solve Netpractice?
 
 1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
-2. If the **check button** does not appear, try opening it in a **different browser**.  
+2. If the **check button** does not appear, try opening it in a **different browser**.
+3. Mini theory:
+   - IP address = 4 octets (32 bits total)
+   - Subnet masks =  4 octets (32 bits total)
+   - 1 octet = 8 bits
+
 
 ## Level 1, 2, 3: IP and Mask
 
@@ -50,10 +55,6 @@
 - /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.
 
 # Theory to know before level 7
-
-- IP address = 4 octets (32 bits total)
-- Subnet masks =  4 octets (32 bits total)
-- 1 octet = 8 bits
 
 # 📡 Public vs Private IP Addresses  
 
