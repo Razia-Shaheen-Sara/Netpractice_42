@@ -206,4 +206,27 @@ The **number of usable IP addresses** depends on the subnet mask:
 - **CIDR Notation** tells you how many bits are used for the network.
 - **Subtracting from 256** helps find the block size and number of usable IPs.
 
+# 📡 Network Bits & Host Bits  
+
+## 🧮 Network Bits and Host Bits  
+Each IP address consists of **network bits** and **host bits**.  
+
+- **Subnet Mask:** `255.255.255.0`  
+- **Binary Representation:** `11111111.11111111.11111111.00000000`  
+- **Network Bits (`1`s):** Define the network portion.  
+- **Host Bits (`0`s):** Define the host portion (individual devices in the network).  
+
+---
+
+## 🏷️ CIDR Notation  
+CIDR (**Classless Inter-Domain Routing**) notation represents **the number of network bits** in a subnet mask.  
+
+### 🔹 Example  
+- **Subnet Mask:** `255.255.255.0`  
+- **Binary:** `11111111.11111111.11111111.00000000`  
+- **Total Network Bits (1s):** `24`  
+- **CIDR Notation:** `/24`  
+
+So, `255.255.255.0` is written as **`/24`**, meaning **the first 24 bits are for the network**, and the remaining bits are for hosts.  
+
 
