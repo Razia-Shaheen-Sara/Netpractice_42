@@ -54,11 +54,11 @@
 - /25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).
 - /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.
 
-# Theory to know before level 7
+## Theory to know before level 7
 
-# 📡 Public vs Private IP Addresses  
+## 📡 Public vs Private IP Addresses  
 
-## 🌍 Public IP Address (Globally Unique)  
+ **🌍 Public IP Address (Globally Unique)**  
 ✅ **Completely unique** across the entire internet.  
 ✅ **Assigned by ISPs (Internet Service Providers)** to routers or devices that directly connect to the internet.  
 ✅ **Used for internet communication** (e.g., websites, online services).  
@@ -73,7 +73,7 @@ Any IP **not** in the private IP ranges (see below) is considered a **public IP*
 
 ---
 
-## 🏠 Private IP Address (Not Unique)  
+**🏠 Private IP Address (Not Unique)** 
 ✅ **Used within a local network (LAN)**.  
 ✅ **Not unique globally** — **same private IPs can exist in different networks** (e.g., multiple homes use `192.168.1.1`).  
 ✅ **Assigned by routers** to home devices like laptops, phones, or smart TVs.  
