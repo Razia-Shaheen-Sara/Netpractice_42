@@ -57,9 +57,64 @@
 - At this point we have routes and interfaces **INBETWEEN** two routers\
 - Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
 
+
+# 📡 Public vs Private IP Addresses  
+
+## 🌍 Public IP Address (Globally Unique)  
+✅ **Completely unique** across the entire internet.  
+✅ **Assigned by ISPs (Internet Service Providers)** to routers or devices that directly connect to the internet.  
+✅ **Used for internet communication** (e.g., websites, online services).  
+
+### 🔹 Example Public IPs  
+- `8.8.8.8` (Google DNS)  
+- `142.250.190.14` (Google.com)  
+
+
+### 🌐 Public IP Range  
+Any IP **not** in the private IP ranges (see below) is considered a **public IP**.
+
+---
+
+## 🏠 Private IP Address (Not Unique)  
+✅ **Used within a local network (LAN)**.  
+✅ **Not unique globally** — **same private IPs can exist in different networks** (e.g., multiple homes use `192.168.1.1`).  
+✅ **Assigned by routers** to home devices like laptops, phones, or smart TVs.  
+✅ **Cannot communicate directly with the internet** (needs **NAT** from a router).  
+
+### 🔹 Private IP Ranges  
+
+| **Private Network** | **IP Range** | **Common Use** |
+|---------------|-----------------|-------------------|
+| **Class A** | `10.0.0.0` – `10.255.255.255` | Large organizations |
+| **Class B** | `172.16.0.0` – `172.31.255.255` | Medium-sized networks |
+| **Class C** | `192.168.0.0` – `192.168.255.255` | Home & small business networks |
+
+### 🖥️ Example Private IPs  
+- `192.168.1.1` (Common home router IP)  
+- `10.0.0.5` (Enterprise network device)  
+- `172.16.100.25` (Corporate network)  
+
+---
+
+## 🔄 How Routers Handle IPs  
+✔️ **Public IP** → Assigned by ISP, used for internet access.  
+✔️ **Private IP** → Used inside a local network assigned by router.  
+✔️ **Routers have both**:  
+   - **Public IP** on the **WAN side** (internet-facing).  
+   - **Private IP** on the **LAN side** (e.g., `192.168.1.1` for home devices).  
+
+---
+
+📌 **Summary**  
+- **Public IPs** are unique worldwide & required for internet access.  
+- **Private IPs** are used locally & not routable over the internet.  
+- **Routers bridge private networks to public networks using NAT (Network Address Translation).**
+
+
 - IP address = 4 octets (32 bits total)
 - Subnet masks =  4 octets (32 bits total)
 - 1 octet = 8 bits
+
 
 **IP and Subnet Mask Relationship**
 
