@@ -49,14 +49,11 @@
 - /25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).
 - /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.
 
-## Level 7: TWO ROUTERS
+# Theory to know before level 7
 
-- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
-- first we start solving from host A1 with given IP- R1's fisrt\
-- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
-- At this point we have routes and interfaces **INBETWEEN** two routers\
-- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
-
+- IP address = 4 octets (32 bits total)
+- Subnet masks =  4 octets (32 bits total)
+- 1 octet = 8 bits
 
 # 📡 Public vs Private IP Addresses  
 
@@ -110,17 +107,45 @@ Any IP **not** in the private IP ranges (see below) is considered a **public IP*
 - **Private IPs** are used locally & not routable over the internet.  
 - **Routers bridge private networks to public networks using NAT (Network Address Translation).**
 
+# 📡 Network Bits & Host Bits  
 
-- IP address = 4 octets (32 bits total)
-- Subnet masks =  4 octets (32 bits total)
-- 1 octet = 8 bits
+## 🧮 Network Bits and Host Bits  
+Each IP address consists of **network bits** and **host bits**.  
 
+- **Subnet Mask:** `255.255.255.0`  
+- **Binary Representation:** `11111111.11111111.11111111.00000000`  
+- **Network Bits (`1`s):** Define the network portion.  
+- **Host Bits (`0`s):** Define the host portion (individual devices in the network).  
+
+---
+
+## 🏷️ CIDR Notation  
+CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** in a subnet mask.  
+
+### 🔹 Example  
+- **Subnet Mask:** `255.255.255.0`  
+- **Binary:** `11111111.11111111.11111111.00000000`  
+- **Total Network Bits (1s):** `24`  
+- **CIDR Notation:** `/24`  
 
 **IP and Subnet Mask Relationship**
 
 - The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
 - The network part can be in different octets depending on the subnet mask.
 - The host part is whatever remains after the network part is decided.
+
+## Level 7: TWO ROUTERS
+
+- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
+- first we start solving from host A1 with given IP- R1's fisrt\
+- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
+- At this point we have routes and interfaces **INBETWEEN** two routers\
+- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
+
+
+
+
+
 
 **Subnet and IP Visualization Examples**
 
@@ -206,26 +231,6 @@ The **number of usable IP addresses** depends on the subnet mask:
 - **CIDR Notation** tells you how many bits are used for the network.
 - **Subtracting from 256** helps find the block size and number of usable IPs.
 
-# 📡 Network Bits & Host Bits  
-
-## 🧮 Network Bits and Host Bits  
-Each IP address consists of **network bits** and **host bits**.  
-
-- **Subnet Mask:** `255.255.255.0`  
-- **Binary Representation:** `11111111.11111111.11111111.00000000`  
-- **Network Bits (`1`s):** Define the network portion.  
-- **Host Bits (`0`s):** Define the host portion (individual devices in the network).  
-
----
-
-## 🏷️ CIDR Notation  
-CIDR (**Classless Inter-Domain Routing**) notation represents **the number of network bits** in a subnet mask.  
-
-### 🔹 Example  
-- **Subnet Mask:** `255.255.255.0`  
-- **Binary:** `11111111.11111111.11111111.00000000`  
-- **Total Network Bits (1s):** `24`  
-- **CIDR Notation:** `/24`  
 
 So, `255.255.255.0` is written as **`/24`**, meaning **the first 24 bits are for the network**, and the remaining bits are for hosts.  
 
