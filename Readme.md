@@ -212,6 +212,26 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 
 🚀 **No binary needed—just subtract, find multiples, and calculate!**  
 
+# 📡 Common Network and Broadcast Addresses  
+
+| Subnet Mask | Block Size | Example Network Address | Example Broadcast Address |
+|------------|-----------|-------------------------|--------------------------|
+| `255.255.255.128` (`/25`) | 128 | `192.168.1.0` | `192.168.1.127` |
+| `255.255.255.192` (`/26`) | 64  | `192.168.1.0` | `192.168.1.63` |
+| `255.255.255.224` (`/27`) | 32  | `192.168.1.32` | `192.168.1.63` |
+| `255.255.255.240` (`/28`) | 16  | `192.168.1.48` | `192.168.1.63` |
+| `255.255.255.248` (`/29`) | 8   | `192.168.1.56` | `192.168.1.63` |
+| `255.255.255.252` (`/30`) | 4   | `192.168.1.60` | `192.168.1.63` |
+
+---
+
+### **How It Works**
+1. **Find the block size**: `256 - subnet mask octet`
+2. **Multiples of the block size**: `0, block size, 2×block size, ...`
+3. **Network Address** = **Closest multiple ≤ given IP**
+4. **Broadcast Address** = `Network Address + (Block Size - 1)`
+
+🚀 **No binary needed—just compare and pick!**
 
 
 
