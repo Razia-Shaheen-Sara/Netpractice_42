@@ -135,19 +135,6 @@ CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of 
 - The network part can be in different octets depending on the subnet mask.
 - The host part is whatever remains after the network part is decided.
 
-## Level 7: TWO ROUTERS
-
-- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
-- first we start solving from host A1 with given IP- R1's fisrt\
-- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
-- At this point we have routes and interfaces **INBETWEEN** two routers\
-- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
-
-
-
-
-
-
 **Subnet and IP Visualization Examples**
 
 - For subnet mask `255.255.255.0`, the network part is the first 3 octets, and the host part is the last octet.  
@@ -164,20 +151,41 @@ These are the possible values that set the bits in a subnet mask, from 8 bits to
 General Pattern (8 bits range): The formula to calculate group size is always 2^host-bits
 - 255 = 8 bits (binary: 11111111) — 8 bits for the network part, 0 IPs for hosts (no space left for hosts).
 - 254 = 7 bits (binary: 11111110) — 7 bits for the network part, leaving 1 bit for the host part. groupsize: 2^1 = 2.
-- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. Usable IPs: 2^2 = 4.
-- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. Usable IPs: 2^3 = 8.
-- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. Usable IPs: 2^4 = 16.
-- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. Usable IPs: 2^5 = 32.
-- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. Usable IPs: 2^6 = 64.
-- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. Usable IPs: 2^7 = 128.
-- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. Usable IPs: 2^8 = 256.
+- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. groupsize: 2^2 = 4.
+- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. groupsize: 2^3 = 8.
+- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. groupsize: 2^4 = 16.
+- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. groupsize: 2^5 = 32.
+- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. groupsize: 2^6 = 64.
+- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. groupsize: 2^7 = 128.
+- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. groupsize: 2^8 = 256.
+
+  from each group size, the first and last IP's are reserved as Network address and Broadcast address. the inbetweeners are Usable IPs.
 
 
-| Subnet Mask | Group Size | Example Network | Usable Range | Broadcast Address |
-|-------------|------------|-----------------|--------------|-------------------|
-| 255.255.255.240  | 16 IPs | `192.168.1.32` | `192.168.1.33 - 192.168.1.46` | `192.168.1.47` |
-| 255.255.255.192  | 64 IPs | `10.0.0.128` | `10.0.0.129 - 10.0.0.190` | `10.0.0.191` |
-| 255.255.255.252  | 4 IPs | `172.16.5.12` | `172.16.5.13 - 172.16.5.14` | `172.16.5.15` |
+# 📡 Subnet Mask, Network, and Broadcast Addresses  
+
+| **Subnet Mask** | **Group Size** | **Example Network** | **Network Address** | **Broadcast Address** |
+|---------------|------------|-----------------|----------------|-------------------|
+| `255.255.255.240` (`/28`) | 16 IPs | `192.168.1.32` | `192.168.1.32` | `192.168.1.47` |
+| `255.255.255.192` (`/26`) | 64 IPs | `10.0.0.128` | `10.0.0.128` | `10.0.0.191` |
+| `255.255.255.252` (`/30`) | 4 IPs | `172.16.5.12` | `172.16.5.12` | `172.16.5.15` |
+| `255.255.255.0` (`/24`) | 256 IPs | `192.168.50.0` | `192.168.50.0` | `192.168.50.255` |
+| `255.255.254.0` (`/23`) | 512 IPs | `172.16.4.0` | `172.16.4.0` | `172.16.5.255` |
+| `255.255.248.0` (`/21`) | 2048 IPs | `10.5.8.0` | `10.5.8.0` | `10.5.15.255` |
+
+
+
+## Level 7: TWO ROUTERS
+
+- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
+- first we start solving from host A1 with given IP- R1's fisrt\
+- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
+- At this point we have routes and interfaces **INBETWEEN** two routers\
+- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
+
+
+
+
 
 
 # Subnet Mask diving "Pizza" Examples
@@ -200,11 +208,7 @@ IP addresses come in groups called **blocks**. Each block has:
 - **Broadcast Address** = Last IP in the block (**not usable**).
 - **Usable IPs** = Everything between **Network Address +1** and **Broadcast Address -1**.
 
-### CIDR Notation
-- CIDR notation looks like **`IP_address/number`** (e.g., 192.168.1.0/27).
-- **Subnet Mask** example:
-  - **255.255.255.0** → First 3 parts are for the network, the rest is for devices.
-  - **255.255.0.0** → First 2 parts are for the network, the rest is for devices.
+
 
 ### Examples: IP Ranges for /24, /27, and /30
 
@@ -227,12 +231,6 @@ The **number of usable IP addresses** depends on the subnet mask:
   - For example: **/27** → `256 - 224 = 32` (32 IPs per block).
   - **/30** → `256 - 252 = 4` (4 IPs per block).
 
-### Summary:
-- **Subnet Mask** defines how big a subnet is and how many IPs it has.
-- **CIDR Notation** tells you how many bits are used for the network.
-- **Subtracting from 256** helps find the block size and number of usable IPs.
 
-
-So, `255.255.255.0` is written as **`/24`**, meaning **the first 24 bits are for the network**, and the remaining bits are for hosts.  
 
 
