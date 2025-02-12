@@ -160,6 +160,54 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 - 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. groupsize: 2^8 = 256.
 
   from each group size, the first and last IP's are reserved as Network address and Broadcast address. the inbetweeners are Usable IPs.
+# 📡 Quick Subnet Calculation (No Binary Needed)
+
+## **Step 1: Find the Network Address**
+1. **Identify the subnet mask's "interesting octet"** (first non-255 octet).  
+2. **Find the block size**: `256 - Subnet Mask Octet`.  
+3. **Find the nearest multiple of the block size** **≤ given IP**  
+   - Compare with the multiples: `0, block size, 2×block size, 3×block size, ...`  
+   - Choose the **largest multiple that is less than or equal to the given IP** → **Network Address**.
+
+## **Step 2: Find the Broadcast Address**
+- **Broadcast Address** = `Network Address + (Block Size - 1)`
+
+---
+
+## **Example 1: Given IP `192.168.1.45`, Mask `255.255.255.240` (`/28`)**
+- **Interesting Octet**: `240`
+- **Block Size**: `256 - 240 = 16`
+- **Multiples of 16**: `0, 16, 32, 48, 64...`
+- **Nearest multiple ≤ 45**: `32` → **Network Address** = `192.168.1.32`
+- **Broadcast Address**: `32 + (16 - 1) = 47` → **`192.168.1.47`**
+
+---
+
+## **Example 2: Given IP `10.0.5.200`, Mask `255.255.255.192` (`/26`)**
+- **Interesting Octet**: `192`
+- **Block Size**: `256 - 192 = 64`
+- **Multiples of 64**: `0, 64, 128, 192, 256...`
+- **Nearest multiple ≤ 200**: `192` → **Network Address** = `10.0.5.192`
+- **Broadcast Address**: `192 + (64 - 1) = 255` → **`10.0.5.255`**
+
+---
+
+## **Example 3: Given IP `172.16.4.100`, Mask `255.255.254.0` (`/23`)**
+- **Interesting Octet**: `254`
+- **Block Size**: `256 - 254 = 2`
+- **Multiples of 2**: `0, 2, 4, 6, 8, 10, ..., 254`
+- **Nearest multiple ≤ 100**: `100` → **Network Address** = `172.16.4.0`
+- **Broadcast Address**: `0 + (2 × 256 - 1) = 172.16.5.255`
+
+---
+
+## **Common Block Sizes**
+| Subnet Mask | Block Size | Network Multiples |
+|------------|-----------|------------------|
+| `255.255.255.128` (`/25`) | 128 | `0, 128` |
+| `255.255.255.192` (`/26`) | 64 | `0, 64, 128, 192` |
+| `255.255.255.224` (`
+
 
 
 # 📡 Subnet Mask, Network, and Broadcast Addresses  
