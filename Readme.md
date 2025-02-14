@@ -246,6 +246,30 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 | `255.255.254.0` (`/23`) | 512 IPs | `172.16.4.100` | `172.16.4.0` | `172.16.5.255` |
 | `255.255.248.0` (`/21`) | 2048 IPs | `10.5.9.20` | `10.5.8.0` | `10.5.15.255` |
 
+# 📊 Subnetting Block Size Table  
+
+| **Exponent (n)** | **2ⁿ Value** | **CIDR Notation** | **Block Size** | **Usable Hosts** |
+|-----------------|------------|-----------------|------------|--------------|
+| 2⁰  | 1   | (Not used)   | N/A  | N/A  |
+| 2¹  | 2   | (Not used)   | N/A  | N/A  |
+| 2²  | 4   | `/30`  | 4  | 2  |
+| 2³  | 8   | `/29`  | 8  | 6  |
+| 2⁴  | 16  | `/28`  | 16 | 14  |
+| 2⁵  | 32  | `/27`  | 32 | 30  |
+| 2⁶  | 64  | `/26`  | 64 | 62  |
+| 2⁷  | 128 | `/25`  | 128 | 126  |
+| 2⁸  | 256 | `/24`  | 256 | 254  |
+
+---
+
+## **How to Use This Table**
+- **Block Size** = `256 - subnet mask octet`
+- **Usable Hosts** = `2ⁿ - 2` (subtracting network & broadcast addresses)
+
+📌 **Example:**  
+For subnet **255.255.255.192 (/26)**:  
+- **Block Size** = `64`  
+- **Usable Hosts** = `62`  
 
 
 ## Level 7: TWO ROUTERS
