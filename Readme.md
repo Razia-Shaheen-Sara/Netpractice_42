@@ -321,6 +321,15 @@ For subnet **255.255.255.192 (/26)**:
 |                  |            |                              | `x.x.x.8`       | `x.x.x.11`        | `x.x.x.9 - x.x.x.10` (Subnet 3) |
 |                  |            |                              | `x.x.x.252`     | `x.x.x.255`       | `x.x.x.253 - x.x.x.254` (Subnet 4) |
 
+
+## Router Interface info
+The router can have multiple interfaces with the same subnet mask (e.g., /30) as long as the IP addresses on those interfaces fall within different subnets. Each interface needs to be on a different network, even if they share the same subnet mask.
+
+
+
+
+
+
 ## Level 7: TWO ROUTERS
 
 - with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
