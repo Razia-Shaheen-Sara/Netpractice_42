@@ -361,8 +361,34 @@ Same broadcast and network address as Router 1
 - At this point we have routes and interfaces **INBETWEEN** two routers\
 - Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
 
+## Level 8: Configure Route
 
+# 🖧 Routing Issue: Importance of Subnet Masks in Route Definitions  
 
+## ❌ Problem:  
+- A route is defined **without a subnet mask** (e.g., `X.X.X.X` instead of `X.X.X.X/XX`).  
+- The network expects a **specific subnet size**.  
+- **Result:** Routing failure, incorrect forwarding, or loops.  
+
+## 🔍 Why Does It Fail?  
+1. **No subnet mask = ambiguous route interpretation.**  
+   - Routers may default to an unintended subnet size (e.g., `/32`).  
+   - This leads to mismatched routes and forwarding errors.  
+
+2. **Route matching fails.**  
+   - If the expected route has a different subnet mask, packets may not be forwarded correctly.  
+   - This can cause loops, black holes, or routing inconsistencies.  
+
+## ✅ Fix: Explicitly Defining a Subnet Mask  
+- Using a correct subnet mask ensures:  
+  - **Clear network boundary recognition** 🏆  
+  - **Proper route matching and priority** 🔄  
+  - **Prevention of loops or misroutes** 📌  
+
+## 🎯 Conclusion  
+- **Always specify a subnet mask when defining routes.**  
+- **Unspecified masks can cause incorrect behavior.**  
+- **Using a well-matched subnet mask ensures stable and predictable routing.**  
 
 
 
