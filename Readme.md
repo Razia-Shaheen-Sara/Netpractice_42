@@ -391,6 +391,36 @@ Same broadcast and network address as Router 1
 - **Using a well-matched subnet mask ensures stable and predictable routing.**  
 
 
+## Level 9:
+# Next Hop IP Routing Theory
+
+In routing, the choice of the next hop IP depends on the network design and routing table configuration. Here’s a summary of how it works:
+
+## 1. Closest Router’s Interface (Same Subnet)
+- When the destination IP is within the **same subnet**, the **next hop** IP will be the **interface of the closest router**.
+- This is because the device (host/router) can directly reach the destination network, so it sends the packet to the router in the same subnet.
+
+### Example:
+- **Host A** (IP: `192.168.1.2/24`) wants to communicate with **Host B** (IP: `192.168.1.10/24`).
+- The **next hop** IP is **Router R1**'s interface (e.g., `192.168.1.1`), as it is directly connected to the same subnet.
+
+## 2. Next Router’s Interface (Different Subnet)
+- When the destination is in a **different subnet** (or farther away), the **next hop** IP will be the **interface of the next router**.
+- Routers forward packets based on their routing table, and if the destination is outside of the local network, the packet is sent to the next router in the path.
+
+### Example:
+- **Host A** (IP: `192.168.1.2/24`) wants to communicate with **Host C** (IP: `10.0.0.2/24`).
+- Since **Host A** is in a different subnet, **Router R1** will forward the packet to **Router R2**, using **R2's interface** (e.g., `192.168.2.1`), as the next hop.
+
+## Why Does This Happen?
+- **Routing Decision**: Routers make forwarding decisions based on their **routing table** and the **destination IP**.
+  - If the destination is **directly reachable**, the next hop will be the **closest router's interface**.
+  - If the destination is in a **different subnet**, the next hop will be the **next router's interface** on the way to the destination.
+
+## Summary:
+- **Same Subnet**: Next hop is the **closest router’s interface**.
+- **Different Subnet**: Next hop is the **next router’s interface**.
+
 
 # Subnet Mask diving "Pizza" Examples
 
