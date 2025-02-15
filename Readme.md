@@ -325,6 +325,29 @@ For subnet **255.255.255.192 (/26)**:
 ## Router Interface info
 The router can have multiple interfaces with the same subnet mask (e.g., /30) as long as the IP addresses on those interfaces fall within different subnets. Each interface needs to be on a different network, even if they share the same subnet mask.
 
+## router to router
+For router-to-router communication, both interfaces must be in the same subnet, meaning they should belong to the same IP block based on the subnet mask.
+
+Example with /30 (Block Size = 4):
+If Router 1 has:
+
+IP: 1.2.3.1/30
+Subnet Range: 1.2.3.0 - 1.2.3.3
+Usable IPs: 1.2.3.1 (Router 1), 1.2.3.2 (Router 2)
+Broadcast: 1.2.3.3
+Then Router 2 must have:
+
+IP: 1.2.3.2/30 (from the same subnet)
+Subnet Mask: /30
+Same broadcast and network address as Router 1
+💡 If one router had 1.2.3.5/30, it would be in a different subnet (1.2.3.4 - 1.2.3.7) and wouldn’t connect!
+
+
+
+
+
+
+
 
 
 
