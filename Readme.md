@@ -391,7 +391,7 @@ Same broadcast and network address as Router 1
 - **Using a well-matched subnet mask ensures stable and predictable routing.**  
 
 
-## Level 9:
+## Level 9: work with third octet
 # Next Hop IP Routing Theory
 
 In routing, the choice of the next hop IP depends on the network design and routing table configuration. Here’s a summary of how it works:
