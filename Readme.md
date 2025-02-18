@@ -421,6 +421,9 @@ In routing, the choice of the next hop IP depends on the network design and rout
 - **Same Subnet**: Next hop is the **closest router’s interface**.
 - **Different Subnet**: Next hop is the **next router’s interface**.
 
+## for a gateway (router-to-router) connection, the subnet mask of the connected interfaces of the two routers should typically be the same.
+
+
 
 # Subnet Mask diving "Pizza" Examples
 
