@@ -1,3 +1,16 @@
+
+<details>
+  <summary># How to Solve Netpractice?</summary>
+
+1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
+2. If the **check button** does not appear, try opening it in a **different browser**.
+3. Mini theory:
+   - IP address = 4 octets (32 bits total)
+   - Subnet masks =  4 octets (32 bits total)
+   - 1 octet = 8 bits
+
+</details>
+
 # How to Solve Netpractice?
 
 1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
@@ -7,7 +20,12 @@
    - Subnet masks =  4 octets (32 bits total)
    - 1 octet = 8 bits
 
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 1, 2, 3: IP and Mask
 
 - Delete all editable numbers.
@@ -18,21 +36,36 @@
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
 ![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
 
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 4: Router and it's Interfaces
 
 - Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
 - Hosts connected to the same interface of a router will typically have
 - the same subnet mask and
 - IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same because of Grouping/subnet
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 5: Route
 
 - Each host should connect to router: make same mask as router and close IPs
 - Hosts should communicate with each other through the router for which we will have **route IPs**
 - Route IPs should be **SAME** as the router IP of their respective side
 - Route has another option (route), that is set to default here
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 6: THE INTERNET
 
 - Router has 2 interfaces R1 and R2
@@ -354,7 +387,12 @@ Same broadcast and network address as Router 1
 
 
 
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 7: TWO ROUTERS
 
 - with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
@@ -362,7 +400,12 @@ Same broadcast and network address as Router 1
 - make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
 - At this point we have routes and interfaces **INBETWEEN** two routers\
 - Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 8: Configure Route
 
 # 🖧 Routing Issue: Importance of Subnet Masks in Route Definitions  
@@ -392,7 +435,12 @@ Same broadcast and network address as Router 1
 - **Unspecified masks can cause incorrect behavior.**  
 - **Using a well-matched subnet mask ensures stable and predictable routing.**  
 
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 ## Level 9: work with third octet
 # Next Hop IP Routing Theory
 
@@ -470,6 +518,11 @@ The **number of usable IP addresses** depends on the subnet mask:
   - For example: **/27** → `256 - 224 = 32` (32 IPs per block).
   - **/30** → `256 - 252 = 4` (4 IPs per block).
 
+<details>
+  <summary>Click to expand</summary>
 
+  Your hidden content goes here.
+
+</details>
 
 
