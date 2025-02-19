@@ -347,7 +347,7 @@ Same broadcast and network address as Router 1
 
 
 
-
+## Next-hop IP usually means the closest interface of the next router that your current router can reach.
 
 
 
