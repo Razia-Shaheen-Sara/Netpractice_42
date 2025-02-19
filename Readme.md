@@ -1,6 +1,6 @@
 
 <details>
-  <summary># How to Solve Netpractice?</summary>
+  <summary> ##How to Solve Netpractice? </summary>
 
 1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
 2. If the **check button** does not appear, try opening it in a **different browser**.
@@ -11,14 +11,6 @@
 
 </details>
 
-# How to Solve Netpractice?
-
-1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
-2. If the **check button** does not appear, try opening it in a **different browser**.
-3. Mini theory:
-   - IP address = 4 octets (32 bits total)
-   - Subnet masks =  4 octets (32 bits total)
-   - 1 octet = 8 bits
 
 <details>
   <summary>Click to expand</summary>
