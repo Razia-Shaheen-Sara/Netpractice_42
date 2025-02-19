@@ -16,6 +16,7 @@
 - because IPs come in groups called **SUBNETS** discussed later 
 - subtract 1 or (in case of failure, adding 1) from the last digit
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
+![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
 
 
 ## Level 4: Router and it's Interfaces
