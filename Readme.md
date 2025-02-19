@@ -9,13 +9,7 @@
 </details>
 
 
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
-## Level 1, 2, 3: IP and Mask
+<details><summary>Level 1, 2, 3: IP and Mask</summary>
 
 - Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
@@ -24,6 +18,10 @@
 - subtract 1 or (in case of failure, adding 1) from the last digit
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
 ![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
+
+</details>
+
+
 
 <details>
   <summary>Click to expand</summary>
