@@ -12,7 +12,8 @@
 
 - Delete all editable numbers.
 - PCs with the **same mask** belong to the **same network** and can communicate with each other.  
-- the **IP addresses of same network should be almost identical**, except for the **last digit**.  
+- the **IP addresses of same network should be almost identical**, except for the **last digit**.
+- because IPs come in groups called **SUBNETS** discussed later 
 - subtract 1 or (in case of failure, adding 1) from the last digit
 - If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
 
@@ -22,7 +23,7 @@
 - Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
 - Hosts connected to the same interface of a router will typically have
 - the same subnet mask and
-- IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same!
+- IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same because of Grouping/subnet
 
 ## Level 5: Route
 
