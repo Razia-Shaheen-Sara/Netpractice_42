@@ -35,6 +35,8 @@ CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of 
 
 ![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
 
+Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
+
 </details>
 
 <details> <summary>Level 4: Router and it's Interfaces</summary>
