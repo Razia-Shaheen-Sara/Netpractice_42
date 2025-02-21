@@ -15,10 +15,9 @@
 </details>
 
 
-<details><summary>Level 2 and 3: two ways to write mask</summary>
+<details><summary>Level 2 and 3: cider notation</summary>
 
--Here subnet mask is shown like this **/30** because it is another way of writing the mask called
-## 🏷️ CIDR Notation  
+-Here subnet mask is shown like this **/30** because it is another way of writing the mask called **CIDR Notation**  
 CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** (which is 1) in a subnet mask
 ### 🔹 Example  
 - **Subnet Mask:** `255.255.255.0`  
