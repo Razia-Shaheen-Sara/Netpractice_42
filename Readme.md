@@ -1,12 +1,17 @@
 ## How to Solve Netpractice?
 
-1. **Download**, extract, and open the `index.html` file using your **Intra name**.  
-2. If the **check button** does not appear, try opening it in a **different browser**.
-3. <details> <summary> MINI THEORY: </summary>
-   
-   - IP address = 4 octets (32 bits total)
-   - Subnet masks =  4 octets (32 bits total)
-   - 1 octet = 8 bits
+**Download**, extract, and open the `index.html` file using **chrome** then your **Intra name**.  
+
+<details><summary>Level 1: Intro to IP and Mask</summary>
+
+- IP address = 4 octets (32 bits total)
+- Subnet masks =  4 octets (32 bits total)
+- 1 octet = 8 bits
+- Delete all editable numbers.
+- PCs with the **same mask** belong to the **same network** and can communicate with each other.  
+- the **IP addresses of same network should be almost identical**, except for the **last digit**.
+- because IPs come in groups called **SUBNETS** discussed later 
+- subtract 1 or (in case of failure, adding 1) from the last digit of the IP address
 </details>
 
 
