@@ -21,20 +21,17 @@
 
 </details>
 
-
-
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
-## Level 4: Router and it's Interfaces
+<details> <summary>Level 4: Router and it's Interfaces</summary>
 
 - Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
 - Hosts connected to the same interface of a router will typically have
 - the same subnet mask and
 - IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same because of Grouping/subnet
+
+</details>
+
+
+
 <details>
   <summary>Click to expand</summary>
 
