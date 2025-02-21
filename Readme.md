@@ -19,11 +19,20 @@
 
 -Here subnet mask is shown like this **/30** because it is another way of writing the mask called **CIDR Notation**  
 CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** (which is 1) in a subnet mask
-### 🔹 Example  
+### Example  
 - **Subnet Mask:** `255.255.255.0`  
 - **Binary:** `11111111.11111111.11111111.00000000`  
 - **Total Network Bits (1s):** `24`  
-- **CIDR Notation:** `/24` 
+- **CIDR Notation:** `/24`
+- **Disclaimer** - You dont need to do binary convertions here for this project. More example for easy visualization --
+/30 → 255.255.255.252 → 11111111.11111111.11111111.11111100 (30)
+/21 → 255.255.248.0 → 11111111.11111111.11111000.00000000 (21)
+/20 → 255.255.240.0 → 11111111.11111111.11110000.00000000 (20)
+/25 → 255.255.255.128 → 11111111.11111111.11111111.10000000 (25)
+/26 → 255.255.255.192 → 11111111.11111111.11111111.11000000 (26)
+/27 → 255.255.255.224 → 11111111.11111111.11111111.11100000 (27)
+/28 → 255.255.255.240 → 11111111.11111111.11111111.11110000 (28)
+
 ![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
 
 </details>
