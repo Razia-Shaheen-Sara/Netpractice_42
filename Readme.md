@@ -24,7 +24,7 @@
 
 <details> <summary>Level 4: Router and it's Interfaces</summary>
 
-- Each router side called **interface**,  should typically have a **separate subnet mask**, because they are in different networks.
+- Each router side called **interface**,  should typically have a separate mask number, because they are in different networks.
 - Hosts connected to the same interface of a router will typically have
 - the same subnet mask and
 - IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same because of Grouping/subnet
@@ -33,13 +33,12 @@
 
 
 
-<details>
-  <summary>Click to expand</summary>
+<details> <summary>Level 5: Route</summary>
 
   Your hidden content goes here.
 
 </details>
-## Level 5: Route
+
 
 - Each host should connect to router: make same mask as router and close IPs
 - Hosts should communicate with each other through the router for which we will have **route IPs**
