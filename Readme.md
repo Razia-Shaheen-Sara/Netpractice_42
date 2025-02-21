@@ -15,14 +15,16 @@
 </details>
 
 
-<details><summary>Level 1, 2, 3: IP and Mask</summary>
+<details><summary>Level 2 and 3: two ways to write mask</summary>
 
-- Delete all editable numbers.
-- PCs with the **same mask** belong to the **same network** and can communicate with each other.  
-- the **IP addresses of same network should be almost identical**, except for the **last digit**.
-- because IPs come in groups called **SUBNETS** discussed later 
-- subtract 1 or (in case of failure, adding 1) from the last digit
-- If there is only a **SWITCH** in between computers/hosts, it does not affect any IP or mask
+-Here subnet mask is shown like this **/30** because it is another way of writing the mask called
+## 🏷️ CIDR Notation  
+CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** (which is 1) in a subnet mask
+### 🔹 Example  
+- **Subnet Mask:** `255.255.255.0`  
+- **Binary:** `11111111.11111111.11111111.00000000`  
+- **Total Network Bits (1s):** `24`  
+- **CIDR Notation:** `/24` 
 ![image](https://github.com/user-attachments/assets/b68862ff-f8cb-4e1f-98d9-68c88b554076)
 
 </details>
@@ -144,14 +146,7 @@ Each IP address consists of **network bits** and **host bits**.
 
 ---
 
-## 🏷️ CIDR Notation  
-CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** in a subnet mask.  
-
-### 🔹 Example  
-- **Subnet Mask:** `255.255.255.0`  
-- **Binary:** `11111111.11111111.11111111.00000000`  
-- **Total Network Bits (1s):** `24`  
-- **CIDR Notation:** `/24`  
+ 
 
 **IP and Subnet Mask Relationship**
 
