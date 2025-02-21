@@ -38,12 +38,14 @@ CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of 
 Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
 </details>
-<details> <summary>Level : Switch</summary>
+<details> <summary>Level 3: Switch</summary>
+  
 - Switch does not affect anything in the network. Just ignore it!
 </details>
 <details> <summary>Level 4: Router and it's Interfaces</summary>
+  
 - Each router side called **interface**,  should typically have a separate mask number, because they are in different networks.
-- Hosts connected to the same interface of a router will typically have
+- Hosts connected to the same interface of a router will typically have -
 1. the same subnet mask and
 2. IP addresses in the same range as the router’s interface but **NOT EXACTLY** the same because of Grouping/subnet
 
