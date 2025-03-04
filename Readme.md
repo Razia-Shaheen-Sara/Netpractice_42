@@ -54,15 +54,13 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
 <details> <summary>Level 5: Route</summary>
 
-  Your hidden content goes here.
+  <img width="637" alt="level5" src="https://github.com/user-attachments/assets/ccb986ba-d2e4-42f6-adb9-691397d41973" />
+
+  -**Next hop IP** should be the same as  router's connected interface's IP, as shown here
 
 </details>
 
 
-- Each host should connect to router: make same mask as router and close IPs
-- Hosts should communicate with each other through the router for which we will have **route IPs**
-- Route IPs should be **SAME** as the router IP of their respective side
-- Route has another option (route), that is set to default here
 <details>
   <summary>Click to expand</summary>
 
