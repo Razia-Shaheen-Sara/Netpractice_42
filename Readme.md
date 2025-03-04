@@ -65,10 +65,10 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
 <details><summary>Level 6: THE INTERNET</summary>
 <img width="1054" alt="level6" src="https://github.com/user-attachments/assets/b22393bc-1b00-48f7-bbf6-bd1a256c42f7" />
-  - for the destination IP of internet route-
-  1. take first 3 octets from destination host **IP**
-  2. add /0 or /any number upto 25 (play with it to see what works)
-
+  for the destination IP of internet route
+  
+  - take first 3 octets from destination host **IP**
+  - add /0 or /any number upto 25 (play with it to see what works)
   - the next-hop ip for the internet is always the closest router interface's IP
 
 </details>
@@ -77,6 +77,33 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
 <img width="947" alt="level 7" src="https://github.com/user-attachments/assets/77e8cfe3-c534-4b02-be4b-24e3f1691217" />
 between two routers, the IPs should be connected, meaning 1 less or more, meaning within same group. At this point, we must understand the groupings known as **SUBNETS**.\
+In this example, the fourth octet of R21 has to be 253, it cannot be 255. Here's why. Based on the CIDR notation/Subnet mask, we can get group sizes known as **block size**\
+The first and last members of the block is not useable. So if we set subnet mask as /30 which means(255.255.255.252), block size will be 256 - 252 = 4. we cannot use 255 because it is always the last one, the inbetweeners are 253 and 254(already used), so we are left with 253. For better understanding. the following table may come handy
+
+ 
+| Subnet Mask      | Block Size | IP Range                     | Network Address | Broadcast Address | Usable IP Range                |
+|------------------|------------|------------------------------|-----------------|-------------------|--------------------------------|
+| 255.255.255.0    | /24        | 0 - 255                      | `x.x.x.0`       | `x.x.x.255`       | `x.x.x.1 - x.x.x.254`          |
+| 255.255.255.128  | /25        | 0 - 127, 128 - 255            | `x.x.x.0`       | `x.x.x.127`       | `x.x.x.1 - x.x.x.126` (Subnet 1) |
+|                  |            |                              | `x.x.x.128`     | `x.x.x.255`       | `x.x.x.129 - x.x.x.254` (Subnet 2) |
+| 255.255.255.192  | /26        | 0 - 63, 64 - 127, 128 - 191, 192 - 255 | `x.x.x.0`       | `x.x.x.63`        | `x.x.x.1 - x.x.x.62` (Subnet 1)  |
+|                  |            |                              | `x.x.x.64`      | `x.x.x.127`       | `x.x.x.65 - x.x.x.126` (Subnet 2)|
+|                  |            |                              | `x.x.x.128`     | `x.x.x.191`       | `x.x.x.129 - x.x.x.190` (Subnet 3)|
+|                  |            |                              | `x.x.x.192`     | `x.x.x.255`       | `x.x.x.193 - x.x.x.254` (Subnet 4)|
+| 255.255.255.224  | /27        | 0 - 31, 32 - 63, 64 - 95, 96 - 127, 128 - 159, 160 - 191, 192 - 223, 224 - 255 | `x.x.x.0` | `x.x.x.31`        | `x.x.x.1 - x.x.x.30` (Subnet 1)  |
+|                  |            |                              | `x.x.x.32`      | `x.x.x.63`        | `x.x.x.33 - x.x.x.62` (Subnet 2) |
+|                  |            |                              | `x.x.x.64`      | `x.x.x.95`        | `x.x.x.65 - x.x.x.94` (Subnet 3) |
+|                  |            |                              | `x.x.x.96`      | `x.x.x.127`       | `x.x.x.97 - x.x.x.126` (Subnet 4)|
+| 255.255.255.240  | /28        | 0 - 15, 16 - 31, 32 - 47, 48 - 63, 64 - 79, 80 - 95, 96 - 111, 112 - 127, 128 - 143, 144 - 159, 160 - 175, 176 - 191, 192 - 207, 208 - 223, 224 - 239, 240 - 255 | `x.x.x.0` | `x.x.x.15`        | `x.x.x.1 - x.x.x.14` (Subnet 1)  |
+|                  |            |                              | `x.x.x.16`      | `x.x.x.31`        | `x.x.x.17 - x.x.x.30` (Subnet 2) |
+|                  |            |                              | `x.x.x.32`      | `x.x.x.47`        | `x.x.x.33 - x.x.x.46` (Subnet 3) |
+|                  |            |                              | `x.x.x.48`      | `x.x.x.63`        | `x.x.x.49 - x.x.x.62` (Subnet 4) |
+| 255.255.255.252  | /30        | 0 - 3, 4 - 7, 8 - 11, ... 252 - 255 | `x.x.x.0` | `x.x.x.3`         | `x.x.x.1 - x.x.x.2` (Subnet 1) |
+|                  |            |                              | `x.x.x.4`       | `x.x.x.7`         | `x.x.x.5 - x.x.x.6` (Subnet 2)  |
+|                  |            |                              | `x.x.x.8`       | `x.x.x.11`        | `x.x.x.9 - x.x.x.10` (Subnet 3) |
+|                  |            |                              | `x.x.x.252`     | `x.x.x.255`       | `x.x.x.253 - x.x.x.254` (Subnet 4) |
+
+
 </details>
 **why 128 or 0?**
 - If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.
@@ -326,29 +353,6 @@ For subnet **255.255.255.192 (/26)**:
   - **Network Address:** `192.168.1.64`
   - **Usable Range:** `192.168.1.65 - 192.168.1.126`
   - **Broadcast Address:** `192.168.1.127`
- 
-| Subnet Mask      | Block Size | IP Range                     | Network Address | Broadcast Address | Usable IP Range                |
-|------------------|------------|------------------------------|-----------------|-------------------|--------------------------------|
-| 255.255.255.0    | /24        | 0 - 255                      | `x.x.x.0`       | `x.x.x.255`       | `x.x.x.1 - x.x.x.254`          |
-| 255.255.255.128  | /25        | 0 - 127, 128 - 255            | `x.x.x.0`       | `x.x.x.127`       | `x.x.x.1 - x.x.x.126` (Subnet 1) |
-|                  |            |                              | `x.x.x.128`     | `x.x.x.255`       | `x.x.x.129 - x.x.x.254` (Subnet 2) |
-| 255.255.255.192  | /26        | 0 - 63, 64 - 127, 128 - 191, 192 - 255 | `x.x.x.0`       | `x.x.x.63`        | `x.x.x.1 - x.x.x.62` (Subnet 1)  |
-|                  |            |                              | `x.x.x.64`      | `x.x.x.127`       | `x.x.x.65 - x.x.x.126` (Subnet 2)|
-|                  |            |                              | `x.x.x.128`     | `x.x.x.191`       | `x.x.x.129 - x.x.x.190` (Subnet 3)|
-|                  |            |                              | `x.x.x.192`     | `x.x.x.255`       | `x.x.x.193 - x.x.x.254` (Subnet 4)|
-| 255.255.255.224  | /27        | 0 - 31, 32 - 63, 64 - 95, 96 - 127, 128 - 159, 160 - 191, 192 - 223, 224 - 255 | `x.x.x.0` | `x.x.x.31`        | `x.x.x.1 - x.x.x.30` (Subnet 1)  |
-|                  |            |                              | `x.x.x.32`      | `x.x.x.63`        | `x.x.x.33 - x.x.x.62` (Subnet 2) |
-|                  |            |                              | `x.x.x.64`      | `x.x.x.95`        | `x.x.x.65 - x.x.x.94` (Subnet 3) |
-|                  |            |                              | `x.x.x.96`      | `x.x.x.127`       | `x.x.x.97 - x.x.x.126` (Subnet 4)|
-| 255.255.255.240  | /28        | 0 - 15, 16 - 31, 32 - 47, 48 - 63, 64 - 79, 80 - 95, 96 - 111, 112 - 127, 128 - 143, 144 - 159, 160 - 175, 176 - 191, 192 - 207, 208 - 223, 224 - 239, 240 - 255 | `x.x.x.0` | `x.x.x.15`        | `x.x.x.1 - x.x.x.14` (Subnet 1)  |
-|                  |            |                              | `x.x.x.16`      | `x.x.x.31`        | `x.x.x.17 - x.x.x.30` (Subnet 2) |
-|                  |            |                              | `x.x.x.32`      | `x.x.x.47`        | `x.x.x.33 - x.x.x.46` (Subnet 3) |
-|                  |            |                              | `x.x.x.48`      | `x.x.x.63`        | `x.x.x.49 - x.x.x.62` (Subnet 4) |
-| 255.255.255.252  | /30        | 0 - 3, 4 - 7, 8 - 11, ... 252 - 255 | `x.x.x.0` | `x.x.x.3`         | `x.x.x.1 - x.x.x.2` (Subnet 1) |
-|                  |            |                              | `x.x.x.4`       | `x.x.x.7`         | `x.x.x.5 - x.x.x.6` (Subnet 2)  |
-|                  |            |                              | `x.x.x.8`       | `x.x.x.11`        | `x.x.x.9 - x.x.x.10` (Subnet 3) |
-|                  |            |                              | `x.x.x.252`     | `x.x.x.255`       | `x.x.x.253 - x.x.x.254` (Subnet 4) |
-
 
 ## Router Interface info
 The router can have multiple interfaces with the same subnet mask (e.g., /30) as long as the IP addresses on those interfaces fall within different subnets. Each interface needs to be on a different network, even if they share the same subnet mask.
