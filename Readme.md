@@ -73,9 +73,11 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
 </details>
 
+<details><summary>Level 7: TWO ROUTERS</summary>
 
-
-
+<img width="947" alt="level 7" src="https://github.com/user-attachments/assets/77e8cfe3-c534-4b02-be4b-24e3f1691217" />
+between two routers, the IPs should be connected, meaning 1 less or more, meaning within same group. At this point, we must understand the groupings known as **SUBNETS**.\
+</details>
 **why 128 or 0?**
 - If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.
 - This is a larger subnet, covering all 256 possible IPs in that range.\
