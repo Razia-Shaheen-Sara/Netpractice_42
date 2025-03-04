@@ -63,23 +63,18 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 </details>
 
 
-<details>
-  <summary>Click to expand</summary>
+<details><summary>Level 6: THE INTERNET</summary>
+<img width="1054" alt="level6" src="https://github.com/user-attachments/assets/b22393bc-1b00-48f7-bbf6-bd1a256c42f7" />
+  - for the destination IP of internet route-
+  1. take first 3 octets from destination host **IP**
+  2. add /0 or /any number upto 25 (play with it to see what works)
 
-  Your hidden content goes here.
+  - the next-hop ip for the internet is always the closest router interface's IP
 
 </details>
-## Level 6: THE INTERNET
 
-- Router has 2 interfaces R1 and R2
-- There are two more routes:\
-   1. router R: gate.non-real.com
-   2. host A: webserv.non-real.com
-- to solve, do the same for the host and routes except the internet
-- for the internet route-
-  1. take first 3 octets from host **IP**
-  2. last octet of host mask or 128 or 0 and make it the fourth octet
-  3. add /0 or /any number upto 25 
+
+
 
 **why 128 or 0?**
 - If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.
