@@ -56,7 +56,9 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 
   <img width="637" alt="level5" src="https://github.com/user-attachments/assets/ccb986ba-d2e4-42f6-adb9-691397d41973" />
 
-  -**Next-hop IP** usually means the closest interface of the next router. as shown here
+  - **Next-hop IP** usually means the closest interface of the next router. as shown here
+  - The destination IP is default because data needs a known destination. If no specific route exists, it follows the default route
+  - For this project, we use default as destination IP in most cases
 
 </details>
 
