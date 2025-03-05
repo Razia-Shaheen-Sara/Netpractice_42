@@ -102,22 +102,10 @@ For better understanding, the following table may come in handy.
 | 255.255.255.240    | /28     | 0 - 15, 16 - 31, ..., 240 - 255 | `x.x.x.0`, `x.x.x.16`, ... | `x.x.x.15`, `x.x.x.31`, ... | `x.x.x.1 - x.x.x.14`, `x.x.x.17 - x.x.x.30`, ... | 16 |
 | 255.255.255.252    | /30     | 0 - 3, 4 - 7, ..., 252 - 255 | `x.x.x.0`, `x.x.x.4`, ... | `x.x.x.3`, `x.x.x.7`, ... | `x.x.x.1 - x.x.x.2`, `x.x.x.5 - x.x.x.6`, ... | 64 |
 
-
- 
-
-
+- Each subnet creates a different network.
+- Devices in different subnets cannot communicate directly unless there is a router to forward traffic between them.
 
 </details>
-**why 128 or 0?**
-- If mask is 255.255.255.0, it means the entire last octet is for host addresses, so all IPs from 192.168.1.0 to 192.168.1.255 belong to the same network.
-- This is a larger subnet, covering all 256 possible IPs in that range.\
-- If mask is 255.255.255.128, it is a smaller network range.\
-- 192.168.1.128 would cover 192.168.1.128 to 192.168.1.255 (a range of 128 IP addresses).\
-
-**why till /25??**
-- /0 means all IPs (it’s a catch-all for everything).
-- /25 gives you the first 128 IPs in a network range, which is sufficient for general internet addressing (it's a broader match for networks).
-- /26 would mean the first 64 IPs in a network. This subnet mask is too narrow for defining an internet-wide route because it restricts the address range too much.
 
 ## Theory to know before level 7
 
