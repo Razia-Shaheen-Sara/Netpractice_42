@@ -18,7 +18,7 @@
 
 <details><summary>Level 2: Cider notation</summary>
 
-## 🧮 Network Bits and Host Bits  
+### 🧮 Network Bits and Host Bits  
 Each IP address consists of **network bits** and **host bits**.  
 
 - **Subnet Mask:** `255.255.255.0`  
@@ -26,6 +26,7 @@ Each IP address consists of **network bits** and **host bits**.
 - **Network Bits (`1`s):** Define the network portion.  
 - **Host Bits (`0`s):** Define the host portion (individual devices in the network).  
 
+### CIDR
 -Here subnet mask is shown like this **/30** because it is another way of writing the mask called **CIDR Notation**  
 CIDR (**Classless Inter-Domain Routing**) notation simply means **the number of network bits** (which is 1) in a subnet mask
 ### Example  
