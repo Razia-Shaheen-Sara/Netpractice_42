@@ -76,12 +76,35 @@ Also, if no IP is given, just use 1.2.3 or any number as first 3 octets
 <details><summary>Level 7: TWO ROUTERS</summary>
 
 <img width="947" alt="level 7" src="https://github.com/user-attachments/assets/77e8cfe3-c534-4b02-be4b-24e3f1691217" />
-between two routers, the IPs should be connected, meaning 1 less or more, meaning within same group. At this point, we must understand the groupings known as **SUBNETS**.\
-In this example, the fourth octet of R21 has to be 253, it cannot be 255. Here's why. Based on the CIDR notation/Subnet mask, we can get group sizes known as **block size**\
-The first and last members of the block is not useable. So if we set subnet mask as /30 which means(255.255.255.252), block size will be 256 - 252 = 4. we cannot use 255 because it is always the last one, the inbetweeners are 253 and 254(already used), so we are left with 253. For better understanding. the following table may come handy
+Between two routers, the IPs must be connected, meaning they should be sequential (1 more or 1 less) and within the same subnet.
+
+- In this example, the fourth octet of R21 must be **253**, not **255**. Here's why:
+- The **CIDR notation/Subnet mask** determines group sizes, also known as the **block size**.
+- The **first and last IPs in a block are not usable**:
+  - The first IP is the **Network Address**.
+  - The last IP is the **Broadcast Address**.
+- If we use a **/30 subnet mask (255.255.255.252)**:
+  - Block size = `256 - 252 = 4`
+  - The reserved addresses are:
+    - **Network Address** → `x.x.x.252` (Not usable)
+    - **Usable IPs** → `x.x.x.253`, `x.x.x.254`
+    - **Broadcast Address** → `x.x.x.255` (Not usable)
+  - Since `x.x.x.254` is already used, **R21 must be assigned `x.x.x.253`**.
+
+For better understanding, the following table may come in handy.
+
+| **Subnet Mask**     | **CIDR** | **IP Range**                  | **Network Address** | **Broadcast Address** | **Usable IP Range** |
+|---------------------|---------|-------------------------------|---------------------|----------------------|---------------------|
+| 255.255.255.0      | /24     | 0 - 255                       | `x.x.x.0`          | `x.x.x.255`         | `x.x.x.1 - x.x.x.254` |
+| 255.255.255.128    | /25     | 0 - 127, 128 - 255            | `x.x.x.0`, `x.x.x.128` | `x.x.x.127`, `x.x.x.255` | `x.x.x.1 - x.x.x.126`, `x.x.x.129 - x.x.x.254` |
+| 255.255.255.192    | /26     | 0 - 63, 64 - 127, 128 - 191, 192 - 255 | `x.x.x.0`, `x.x.x.64`, `x.x.x.128`, `x.x.x.192` | `x.x.x.63`, `x.x.x.127`, `x.x.x.191`, `x.x.x.255` | `x.x.x.1 - x.x.x.62`, `x.x.x.65 - x.x.x.126`, `x.x.x.129 - x.x.x.190`, `x.x.x.193 - x.x.x.254` |
+| 255.255.255.224    | /27     | 0 - 31, 32 - 63, ..., 224 - 255 | `x.x.x.0`, `x.x.x.32`, ... | `x.x.x.31`, `x.x.x.63`, ... | `x.x.x.1 - x.x.x.30`, `x.x.x.33 - x.x.x.62`, ... |
+| 255.255.255.240    | /28     | 0 - 15, 16 - 31, ..., 240 - 255 | `x.x.x.0`, `x.x.x.16`, ... | `x.x.x.15`, `x.x.x.31`, ... | `x.x.x.1 - x.x.x.14`, `x.x.x.17 - x.x.x.30`, ... |
+| 255.255.255.252    | /30     | 0 - 3, 4 - 7, ..., 252 - 255 | `x.x.x.0`, `x.x.x.4`, ... | `x.x.x.3`, `x.x.x.7`, ... | `x.x.x.1 - x.x.x.2`, `x.x.x.5 - x.x.x.6`, ... |
+
 
  
-| Subnet Mask      | Block Size | IP Range                     | Network Address | Broadcast Address | Usable IP Range                |
+| Subnet Mask      | CIDR       | IP Range                     | Network Address | Broadcast Address | Usable IP Range                |
 |------------------|------------|------------------------------|-----------------|-------------------|--------------------------------|
 | 255.255.255.0    | /24        | 0 - 255                      | `x.x.x.0`       | `x.x.x.255`       | `x.x.x.1 - x.x.x.254`          |
 | 255.255.255.128  | /25        | 0 - 127, 128 - 255            | `x.x.x.0`       | `x.x.x.127`       | `x.x.x.1 - x.x.x.126` (Subnet 1) |
