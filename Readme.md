@@ -136,9 +136,9 @@ For better understanding, the following table may come in handy.
 <img width="670" alt="level 10" src="https://github.com/user-attachments/assets/ef1f5b81-4909-4b1d-be4b-fc411a897688" /> 
 </details>
 
-
-
-## **Common Block Sizes**
+<details> <summary>some helpful bits</summary>
+  
+  ## **Common Block Sizes**
 | Subnet Mask | Block Size | Network Multiples |
 |------------|-----------|------------------|
 | `255.255.255.128` (`/25`) | 128 | `0, 128` |
@@ -146,19 +146,6 @@ For better understanding, the following table may come in handy.
 | `255.255.255.224` (`/27`) | 32 | `0, 32, 64, 96, 128, 160...` |
 | `255.255.255.240` (`/28`) | 16 | `0, 16, 32, 48, 64...` |
 | `255.255.255.248` (`/29`) | 8 | `0, 8, 16, 24, 32...` |
-
-
-# 📡 Common Network and Broadcast Addresses  
-
-| Subnet Mask | Block Size | Example Network Address | Example Broadcast Address |
-|------------|-----------|-------------------------|--------------------------|
-| `255.255.255.128` (`/25`) | 128 | `192.168.1.0` | `192.168.1.127` |
-| `255.255.255.192` (`/26`) | 64  | `192.168.1.0` | `192.168.1.63` |
-| `255.255.255.224` (`/27`) | 32  | `192.168.1.32` | `192.168.1.63` |
-| `255.255.255.240` (`/28`) | 16  | `192.168.1.48` | `192.168.1.63` |
-| `255.255.255.248` (`/29`) | 8   | `192.168.1.56` | `192.168.1.63` |
-| `255.255.255.252` (`/30`) | 4   | `192.168.1.60` | `192.168.1.63` |
-
 
 # 📡 Subnet Mask, Network, and Broadcast Addresses  
 
@@ -170,28 +157,10 @@ For better understanding, the following table may come in handy.
 | `255.255.255.0` (`/24`) | 256 IPs | `192.168.50.200` | `192.168.50.0` | `192.168.50.255` |
 | `255.255.254.0` (`/23`) | 512 IPs | `172.16.4.100` | `172.16.4.0` | `172.16.5.255` |
 | `255.255.248.0` (`/21`) | 2048 IPs | `10.5.9.20` | `10.5.8.0` | `10.5.15.255` |
-
-
-
 📌 **Example:**  
 For subnet **255.255.255.192 (/26)**:  
 - **Block Size** = `64`  
 - **Usable Hosts** = `62`  
-# 🌐 Subnet Reference Table  
-
-| **Subnet Mask** | **CIDR** | **Block Size** | **Network Address** | **Usable Range** | **Broadcast Address** |
-|---------------|--------|------------|----------------|--------------|-------------------|
-| 255.255.255.252 | `/30` | 4  | `192.168.1.0`  | `192.168.1.1 - 192.168.1.2` | `192.168.1.3` |
-| 255.255.255.248 | `/29` | 8  | `192.168.1.8`  | `192.168.1.9 - 192.168.1.14` | `192.168.1.15` |
-| 255.255.255.240 | `/28` | 16  | `192.168.1.16` | `192.168.1.17 - 192.168.1.30` | `192.168.1.31` |
-| 255.255.255.224 | `/27` | 32  | `192.168.1.32` | `192.168.1.33 - 192.168.1.62` | `192.168.1.63` |
-| 255.255.255.192 | `/26` | 64  | `192.168.1.64` | `192.168.1.65 - 192.168.1.126` | `192.168.1.127` |
-| 255.255.255.128 | `/25` | 128 | `192.168.1.128` | `192.168.1.129 - 192.168.1.254` | `192.168.1.255` |
-| 255.255.255.0   | `/24` | 256 | `192.168.2.0` | `192.168.2.1 - 192.168.2.254` | `192.168.2.255` |
-| 255.255.254.0   | `/23` | 512 | `192.168.2.0` | `192.168.2.1 - 192.168.3.254` | `192.168.3.255` |
-| 255.255.252.0   | `/22` | 1024 | `192.168.4.0` | `192.168.4.1 - 192.168.7.254` | `192.168.7.255` |
-
----
 
 ## **How to Use This Table**
 1. Find the **subnet mask** or **CIDR notation**.
@@ -206,7 +175,7 @@ For subnet **255.255.255.192 (/26)**:
   - **Usable Range:** `192.168.1.65 - 192.168.1.126`
   - **Broadcast Address:** `192.168.1.127`
 
-## Router Interface info
+  ## Router Interface info
 The router can have multiple interfaces with the same subnet mask (e.g., /30) as long as the IP addresses on those interfaces fall within different subnets. Each interface needs to be on a different network, even if they share the same subnet mask.
 
 ## router to router
@@ -253,15 +222,8 @@ Same broadcast and network address as Router 1
 ## 🎯 Conclusion  
 - **Always specify a subnet mask when defining routes.**  
 - **Unspecified masks can cause incorrect behavior.**  
-- **Using a well-matched subnet mask ensures stable and predictable routing.**  
+- **Using a well-matched subnet mask ensures stable and predictable routing.**
 
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
-## Level 9: work with third octet
 # Next Hop IP Routing Theory
 
 In routing, the choice of the next hop IP depends on the network design and routing table configuration. Here’s a summary of how it works:
@@ -294,29 +256,6 @@ In routing, the choice of the next hop IP depends on the network design and rout
 ## for a gateway (router-to-router) connection, the subnet mask of the connected interfaces of the two routers should typically be the same.
 
 
-
-# Subnet Mask diving "Pizza" Examples
-
-When dealing with a router and multiple interfaces, the **IP address block** can be visualized like a pizza. The **subnet mask** determines how the pizza is divided into slices (subnets).
-
-- **Subnet mask 255.255.255.0**  
-  The whole pizza is divided into 1 large slice with **256 total IPs**. For example, `192.168.1.0 - 192.168.1.255`.
-
-- **Subnet mask 255.255.255.128**  
-  The pizza is divided into **2 slices**, each with **128 IPs**. For example, `192.168.1.0 - 192.168.1.127` and `192.168.1.128 - 192.168.1.255`.
-
-- **Subnet mask 255.255.255.192**  
-  The pizza is divided into **4 slices**, each with **64 IPs**. For example, `192.168.1.0 - 192.168.1.63`, `192.168.1.64 - 192.168.1.127`, `192.168.1.128 - 192.168.1.191`, and `192.168.1.192 - 192.168.1.255`.-Here we have internet and it's route, ip given
-
-- **Subnet mask 255.255.255.224**  
-  The pizza is divided into **8 slices**, each with **32 IPs**. For example, `192.168.1.0 - 192.168.1.31`, `192.168.1.32 - 192.168.1.63`, and so on.
-IP addresses come in groups called **blocks**. Each block has:
-- **Network Address** = First IP in the block (**not usable**).
-- **Broadcast Address** = Last IP in the block (**not usable**).
-- **Usable IPs** = Everything between **Network Address +1** and **Broadcast Address -1**.
-
-
-
 ### Examples: IP Ranges for /24, /27, and /30
 
 The **number of usable IP addresses** depends on the subnet mask:
@@ -331,6 +270,4 @@ The **number of usable IP addresses** depends on the subnet mask:
 - **/30 Subnet (255.255.255.252)**:  
   - **4 IPs** total (192.168.1.0 to 192.168.1.3).  
   - Calculation: **256 - 252 = 4** IPs in the block.
-
-
-
+</details>
