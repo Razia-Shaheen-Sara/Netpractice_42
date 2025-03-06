@@ -1,5 +1,5 @@
 
-## Quickest way to Solve Netpractice?
+## Quickest Guide to Solve Netpractice?
 
 **Download**, extract, and open the `index.html` file using **chrome** then your **Intra name**.  
 
