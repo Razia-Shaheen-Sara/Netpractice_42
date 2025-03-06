@@ -99,6 +99,11 @@ Between two routers, the IPs must be connected, meaning they should be sequentia
     - **Usable IPs** → `x.x.x.253`, `x.x.x.254`
     - **Broadcast Address** → `x.x.x.255` (Not usable)
   - Since `x.x.x.254` is already used, **R21 must be assigned `x.x.x.253`**.
+### Why Subtract from 256?
+- IPs are in groups of 256 (from 0 to 255).  
+- **Subtracting from 256** helps determine the size of each subnet.
+  - For example: **/27** → `256 - 224 = 32` (32 IPs per block).
+  - **/30** → `256 - 252 = 4` (4 IPs per block).
 
 For better understanding, the following table may come in handy.
 
@@ -115,139 +120,23 @@ For better understanding, the following table may come in handy.
 - Devices in different subnets cannot communicate directly unless there is a router to forward traffic between them.
 
 </details>
+<details><summary>Level 8 </summary>
 
-## Theory to know before level 7
-
-## 📡 Public vs Private IP Addresses  
-
- **🌍 Public IP Address (Globally Unique)**  
-✅ **Completely unique** across the entire internet.  
-✅ **Assigned by ISPs (Internet Service Providers)** to routers or devices that directly connect to the internet.  
-✅ **Used for internet communication** (e.g., websites, online services).  
-
-### 🔹 Example Public IPs  
-- `8.8.8.8` (Google DNS)  
-- `142.250.190.14` (Google.com)  
+  <img width="789" alt="level 8" src="https://github.com/user-attachments/assets/419fcecd-7ee1-4839-900f-b9d1e670a9d2" />
 
 
-### 🌐 Public IP Range  
-Any IP **not** in the private IP ranges (see below) is considered a **public IP**.
+</details>
+<details><summary>Level 9 </summary>
+<img width="738" alt="level 9" src="https://github.com/user-attachments/assets/b0b4978f-f0f6-4842-9bf6-86fb74ff7d6e" />
 
----
+  
 
-**🏠 Private IP Address (Not Unique)** 
-✅ **Used within a local network (LAN)**.  
-✅ **Not unique globally** — **same private IPs can exist in different networks** (e.g., multiple homes use `192.168.1.1`).  
-✅ **Assigned by routers** to home devices like laptops, phones, or smart TVs.  
-✅ **Cannot communicate directly with the internet** (needs **NAT** from a router).  
-
-### 🔹 Private IP Ranges  
-
-| **Private Network** | **IP Range** | **Common Use** |
-|---------------|-----------------|-------------------|
-| **Class A** | `10.0.0.0` – `10.255.255.255` | Large organizations |
-| **Class B** | `172.16.0.0` – `172.31.255.255` | Medium-sized networks |
-| **Class C** | `192.168.0.0` – `192.168.255.255` | Home & small business networks |
-
-### 🖥️ Example Private IPs  
-- `192.168.1.1` (Common home router IP)  
-- `10.0.0.5` (Enterprise network device)  
-- `172.16.100.25` (Corporate network)  
-
----
-
-## 🔄 How Routers Handle IPs  
-✔️ **Public IP** → Assigned by ISP, used for internet access.  
-✔️ **Private IP** → Used inside a local network assigned by router.  
-✔️ **Routers have both**:  
-   - **Public IP** on the **WAN side** (internet-facing).  
-   - **Private IP** on the **LAN side** (e.g., `192.168.1.1` for home devices).  
-
----
-
-📌 **Summary**  
-- **Public IPs** are unique worldwide & required for internet access.  
-- **Private IPs** are used locally & not routable over the internet.  
-- **Routers bridge private networks to public networks using NAT (Network Address Translation).**
-
-# 📡 Network Bits & Host Bits  
+</details>
+<details><summary>Level 10 </summary>
+<img width="670" alt="level 10" src="https://github.com/user-attachments/assets/ef1f5b81-4909-4b1d-be4b-fc411a897688" /> 
+</details>
 
 
----
-
- 
-
-**IP and Subnet Mask Relationship**
-
-- The subnet mask determines which part of the IP address is used for the network and which part is used for hosts.
-- The network part can be in different octets depending on the subnet mask.
-- The host part is whatever remains after the network part is decided.
-
-**Subnet and IP Visualization Examples**
-
-- For subnet mask `255.255.255.0`, the network part is the first 3 octets, and the host part is the last octet.  
-  **IP**: `192.168.1.100` → `Network: 192.168.1 | Host: 100`
-
-- For subnet mask `255.255.255.128`, the network part is the first 3 octets plus 1 bit of the 4th octet, and the host part is the remaining bits of the 4th octet.  
-  **IP**: `192.168.1.100` → `Network: 192.168.1. | Host: 100`
-
-- For subnet mask `255.255.254.0`, the network part is the first 2 octets plus part of the 3rd octet, and the host part is the remaining bits.  
-  **IP**: `192.168.1.100` → `Network: 192.168. | Host: 1.100`
-
-These are the possible values that set the bits in a subnet mask, from 8 bits to 0 bits.
-
-General Pattern (8 bits range): The formula to calculate group size is always 2^host-bits
-- 255 = 8 bits (binary: 11111111) — 8 bits for the network part, 0 IPs for hosts (no space left for hosts).
-- 254 = 7 bits (binary: 11111110) — 7 bits for the network part, leaving 1 bit for the host part. groupsize: 2^1 = 2.
-- 252 = 6 bits (binary: 11111100) — 6 bits for the network part, leaving 2 bits for the host part. groupsize: 2^2 = 4.
-- 248 = 5 bits (binary: 11111000) — 5 bits for the network part, leaving 3 bits for the host part. groupsize: 2^3 = 8.
-- 240 = 4 bits (binary: 11110000) — 4 bits for the network part, leaving 4 bits for the host part. groupsize: 2^4 = 16.
-- 224 = 3 bits (binary: 11100000) — 3 bits for the network part, leaving 5 bits for the host part. groupsize: 2^5 = 32.
-- 192 = 2 bits (binary: 11000000) — 2 bits for the network part, leaving 6 bits for the host part. groupsize: 2^6 = 64.
-- 128 = 1 bit (binary: 10000000) — 1 bit for the network part, leaving 7 bits for the host part. groupsize: 2^7 = 128.
-- 0 = 0 bits (binary: 00000000) — 0 bits for the network part, leaving 8 bits for the host part. groupsize: 2^8 = 256.
-
-  from each group size, the first and last IP's are reserved as Network address and Broadcast address. the inbetweeners are Usable IPs.
-# 📡 Quick Subnet Calculation (No Binary Needed)
-
-## **Step 1: Find the Network Address**
-1. **Identify the subnet mask's "interesting octet"** (first non-255 octet).  
-2. **Find the block size**: `256 - Subnet Mask Octet`.  
-3. **Find the nearest multiple of the block size** **≤ given IP**  
-   - Compare with the multiples: `0, block size, 2×block size, 3×block size, ...`  
-   - Choose the **largest multiple that is less than or equal to the given IP** → **Network Address**.
-
-## **Step 2: Find the Broadcast Address**
-- **Broadcast Address** = `Network Address + (Block Size - 1)`
-
----
-
-## **Example 1: Given IP `192.168.1.45`, Mask `255.255.255.240` (`/28`)**
-- **Interesting Octet**: `240`
-- **Block Size**: `256 - 240 = 16`
-- **Multiples of 16**: `0, 16, 32, 48, 64...`
-- **Nearest multiple ≤ 45**: `32` → **Network Address** = `192.168.1.32`
-- **Broadcast Address**: `32 + (16 - 1) = 47` → **`192.168.1.47`**
-
----
-
-## **Example 2: Given IP `10.0.5.200`, Mask `255.255.255.192` (`/26`)**
-- **Interesting Octet**: `192`
-- **Block Size**: `256 - 192 = 64`
-- **Multiples of 64**: `0, 64, 128, 192, 256...`
-- **Nearest multiple ≤ 200**: `192` → **Network Address** = `10.0.5.192`
-- **Broadcast Address**: `192 + (64 - 1) = 255` → **`10.0.5.255`**
-
----
-
-## **Example 3: Given IP `172.16.4.100`, Mask `255.255.254.0` (`/23`)**
-- **Interesting Octet**: `254`
-- **Block Size**: `256 - 254 = 2`
-- **Multiples of 2**: `0, 2, 4, 6, 8, 10, ..., 254`
-- **Nearest multiple ≤ 100**: `100` → **Network Address** = `172.16.4.0`
-- **Broadcast Address**: `0 + (2 × 256 - 1) = 172.16.5.255`
-
----
 
 ## **Common Block Sizes**
 | Subnet Mask | Block Size | Network Multiples |
@@ -258,7 +147,6 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 | `255.255.255.240` (`/28`) | 16 | `0, 16, 32, 48, 64...` |
 | `255.255.255.248` (`/29`) | 8 | `0, 8, 16, 24, 32...` |
 
-🚀 **No binary needed—just subtract, find multiples, and calculate!**  
 
 # 📡 Common Network and Broadcast Addresses  
 
@@ -270,17 +158,6 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 | `255.255.255.240` (`/28`) | 16  | `192.168.1.48` | `192.168.1.63` |
 | `255.255.255.248` (`/29`) | 8   | `192.168.1.56` | `192.168.1.63` |
 | `255.255.255.252` (`/30`) | 4   | `192.168.1.60` | `192.168.1.63` |
-
----
-
-### **How It Works**
-1. **Find the block size**: `256 - subnet mask octet`
-2. **Multiples of the block size**: `0, block size, 2×block size, ...`
-3. **Network Address** = **Closest multiple ≤ given IP**
-4. **Broadcast Address** = `Network Address + (Block Size - 1)`
-
-🚀 **No binary needed—just compare and pick!**
-
 
 
 # 📡 Subnet Mask, Network, and Broadcast Addresses  
@@ -294,25 +171,7 @@ General Pattern (8 bits range): The formula to calculate group size is always 2^
 | `255.255.254.0` (`/23`) | 512 IPs | `172.16.4.100` | `172.16.4.0` | `172.16.5.255` |
 | `255.255.248.0` (`/21`) | 2048 IPs | `10.5.9.20` | `10.5.8.0` | `10.5.15.255` |
 
-# 📊 Subnetting Block Size Table  
 
-| **Exponent (n)** | **2ⁿ Value** | **CIDR Notation** | **Block Size** | **Usable Hosts** |
-|-----------------|------------|-----------------|------------|--------------|
-| 2⁰  | 1   | (Not used)   | N/A  | N/A  |
-| 2¹  | 2   | (Not used)   | N/A  | N/A  |
-| 2²  | 4   | `/30`  | 4  | 2  |
-| 2³  | 8   | `/29`  | 8  | 6  |
-| 2⁴  | 16  | `/28`  | 16 | 14  |
-| 2⁵  | 32  | `/27`  | 32 | 30  |
-| 2⁶  | 64  | `/26`  | 64 | 62  |
-| 2⁷  | 128 | `/25`  | 128 | 126  |
-| 2⁸  | 256 | `/24`  | 256 | 254  |
-
----
-
-## **How to Use This Table**
-- **Block Size** = `256 - subnet mask octet`
-- **Usable Hosts** = `2ⁿ - 2` (subtracting network & broadcast addresses)
 
 📌 **Example:**  
 For subnet **255.255.255.192 (/26)**:  
@@ -367,36 +226,7 @@ Subnet Mask: /30
 Same broadcast and network address as Router 1
 💡 If one router had 1.2.3.5/30, it would be in a different subnet (1.2.3.4 - 1.2.3.7) and wouldn’t connect!
 
-
-
-
-
-
-## Next-hop IP usually means the closest interface of the next router that your current router can reach.
-
-
-
-
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
-## Level 7: TWO ROUTERS
-
-- with two routers R1 and R2, will come four interfaces R11 R12 R21 R22 and two routes\
-- first we start solving from host A1 with given IP- R1's fisrt\
-- make a random mask for A1 and it's adjacent router 255.255.255.128 coz no mask is given here\
-- At this point we have routes and interfaces **INBETWEEN** two routers\
-- Use R1's second given IP to reduce and make IPs for the rest of the interfaces and host- nothing new here
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
-## Level 8: Configure Route
+## 
 
 # 🖧 Routing Issue: Importance of Subnet Masks in Route Definitions  
 
@@ -502,17 +332,5 @@ The **number of usable IP addresses** depends on the subnet mask:
   - **4 IPs** total (192.168.1.0 to 192.168.1.3).  
   - Calculation: **256 - 252 = 4** IPs in the block.
 
-### Why Subtract from 256?
-- IPs are in groups of 256 (from 0 to 255).  
-- **Subtracting from 256** helps determine the size of each subnet.
-  - For example: **/27** → `256 - 224 = 32` (32 IPs per block).
-  - **/30** → `256 - 252 = 4` (4 IPs per block).
-
-<details>
-  <summary>Click to expand</summary>
-
-  Your hidden content goes here.
-
-</details>
 
 
